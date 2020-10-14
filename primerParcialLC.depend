@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1602690157 source:d:\federico\documents\progra i\nealon.federico.pplabi\main.c
+1602700466 source:d:\federico\documents\progra i\nealon.federico.pplabi\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -58,7 +58,7 @@
 	"servicio.h"
 	"input.h"
 
-1602699963 source:d:\federico\documents\progra i\nealon.federico.pplabi\trabajo.c
+1602700595 source:d:\federico\documents\progra i\nealon.federico.pplabi\trabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -75,9 +75,9 @@
 
 1602689706 d:\federico\documents\progra i\nealon.federico.pplabi\servicio.h
 
-1602692725 d:\federico\documents\progra i\nealon.federico.pplabi\fecha.h
+1602700466 d:\federico\documents\progra i\nealon.federico.pplabi\fecha.h
 
-1602692725 source:d:\federico\documents\progra i\nealon.federico.pplabi\fecha.c
+1602700466 source:d:\federico\documents\progra i\nealon.federico.pplabi\fecha.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -85,5 +85,5 @@
 	"fecha.h"
 	"input.h"
 
-1602699963 d:\federico\documents\progra i\nealon.federico.pplabi\trabajo.h
+1602700613 d:\federico\documents\progra i\nealon.federico.pplabi\trabajo.h
 

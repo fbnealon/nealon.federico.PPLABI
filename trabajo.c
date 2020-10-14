@@ -36,9 +36,9 @@ int buscarLibreTrabajo(eTrabajo trabajos[], int tam)
     return index;
 }
 
-/*int altaTrabajo(eTrabajo trabajos[], int tamTrabajos, int idTrabajos, eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eServicio servicios[], int tamServicios)
+int altaTrabajo(eTrabajo trabajos[], int tamTrabajos, int idTrabajos, eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eServicio servicios[], int tamServicios)
 {
-    int error=1, auxID, index, flagAuto=1, flagServicio=1;
+    int error=1, auxID, index;
     char confirma='s';
     eTrabajo nuevoTrabajo;
     char auxCad[20];
@@ -60,7 +60,6 @@ int buscarLibreTrabajo(eTrabajo trabajos[], int tam)
             {
                 if(auxID == autos[i].id && autos[i].isEmpty!=0)
                 {
-                    flagAuto=0;
                     printf("Auto encontrado, patente: %s\n", autos[i].patente);
                     system("pause");
                     system("cls");
@@ -70,11 +69,12 @@ int buscarLibreTrabajo(eTrabajo trabajos[], int tam)
                     {
                         if(stricmp(auxCad, servicios[j].descripcion)==0)
                         {
-                            flagServicio=0;
                             printf("Servicio encontrado: %s\n", servicios[j].descripcion);
                             nuevoTrabajo.id = idTrabajos;
                             strcpy(nuevoTrabajo.patente, autos[i].patente);
                             nuevoTrabajo.fecha = solicitarFecha(nuevoTrabajo.fecha);
+                            nuevoTrabajo.idServicio = servicios[j].id;
+                            printf("%d/%d/%d\n", nuevoTrabajo.fecha.dia, nuevoTrabajo.fecha.mes, nuevoTrabajo.fecha.anio);
                             nuevoTrabajo.isEmpty = 1;
                             mostrarTrabajo(nuevoTrabajo, servicios, tamServicios);
                             confirma = getLetter("Confirma alta de trabajo?: ", "Caracter invalido, intente de nuevo: ");
@@ -94,7 +94,7 @@ int buscarLibreTrabajo(eTrabajo trabajos[], int tam)
         }
     }
     return error;
-}*/
+}
 
 int mostrarTrabajos(eTrabajo trabajos[], int tamTrabajos, eServicio servicios[], int tamServicios)
 {
@@ -102,7 +102,7 @@ int mostrarTrabajos(eTrabajo trabajos[], int tamTrabajos, eServicio servicios[],
     int flag=0;
     if(trabajos != NULL && tamTrabajos>0)
     {
-        printf("ID   PATENTE      SERVICIO       FECHA\n\n");
+        printf("ID     PATENTE               SERVICIO       FECHA\n\n");
         for(int i=0; i<tamTrabajos; i++)
         {
             if(trabajos[i].isEmpty != 0)

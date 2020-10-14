@@ -5,13 +5,13 @@
 #include "fecha.h"
 #include "input.h"
 
-eFecha solicitarFecha(eFecha nuevaFecha)
+eFecha solicitarFecha(eFecha unaFecha)
 {
     do
     {
         printf("Ingrese fecha valida (dd/mm/aaaa): ");
         fflush(stdin);
-        scanf("%d/%d/%d", &nuevaFecha.dia, &nuevaFecha.mes, &nuevaFecha.anio);
-    }while((nuevaFecha.dia<1 && nuevaFecha.dia>31) || (nuevaFecha.mes<1 && nuevaFecha.mes>12) || nuevaFecha.anio!=2020);
-    return nuevaFecha;
+        scanf("%d/%d/%d", &unaFecha.dia, &unaFecha.mes, &unaFecha.anio);
+    }while((unaFecha.dia<1 && unaFecha.dia>31) || (unaFecha.mes<1 && unaFecha.mes>12) || unaFecha.anio!=2020);
+    return unaFecha;
 }
