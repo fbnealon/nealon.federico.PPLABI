@@ -55,4 +55,7 @@ char getLetter(char message[], char errorMessage[]);
  */
 void getStrings(char message[], char errorMessage[], int len, char str[]);
 
+void firstUpper(char str[]);
+
+
 #endif // GETFUNCTIONS_H_INCLUDED
