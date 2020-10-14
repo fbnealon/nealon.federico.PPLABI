@@ -5,7 +5,12 @@ typedef struct
 {
     int id; //comienza en 20000
     char descripcion[25];
-    float precio;
+    int precio;
 }eServicio;
+
+int mostrarServicios(eServicio servicios[], int tamServicios);
+
+void mostrarServicio(eServicio unServicio);
+
 
 #endif // SERVICIO_H_INCLUDED

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1602686013 source:d:\federico\documents\progra i\nealon.federico.pplabi\main.c
+1602686538 source:d:\federico\documents\progra i\nealon.federico.pplabi\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -7,6 +7,8 @@
 	"input.h"
 	"auto.h"
 	"marca.h"
+	"servicio.h"
+	"fecha.h"
 
 1602685139 source:d:\federico\documents\progra i\nealon.federico.pplabi\input.c
 	"input.h"
@@ -47,11 +49,21 @@
 	"marca.h"
 	"input.h"
 
-1602678484 source:d:\federico\documents\progra i\nealon.federico.pplabi\servicio.c
+1602686500 source:d:\federico\documents\progra i\nealon.federico.pplabi\servicio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"servicio.h"
+	"input.h"
 
 1602678510 source:d:\federico\documents\progra i\nealon.federico.pplabi\trabajo.c
 
 1602685583 d:\federico\documents\progra i\nealon.federico.pplabi\marca.h
 
 1602685972 d:\federico\documents\progra i\nealon.federico.pplabi\color.h
+
+1602686500 d:\federico\documents\progra i\nealon.federico.pplabi\servicio.h
+
+1602676057 d:\federico\documents\progra i\nealon.federico.pplabi\fecha.h
 

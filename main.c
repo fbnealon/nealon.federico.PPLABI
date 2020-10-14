@@ -5,10 +5,13 @@
 #include "input.h"
 #include "auto.h"
 #include "marca.h"
+#include "servicio.h"
+#include "fecha.h"
 
 #define TAM_A 10
 #define TAM_M 5
 #define TAM_C 5
+#define TAM_S 4
 
 
 int main()
@@ -17,9 +20,10 @@ int main()
     char confirma;
     int rta;
     int proximoIDAuto=3000;
-    eAuto listaAutos[TAM_A] = {{3000, "AS123DS", 1004, 5003, 2000, 1}, {3001, "FD789NL", 1002, 5001, 1985, 1}};
-    eMarca listaMarcas[TAM_M] = {{1000, "Renault"}, {1001, "Fiat"}, {1002, "Ford"}, {1003, "Chevrolet"}, {1004, "Peugeot"}};
-    eColor listaColores[TAM_C] = {{5000, "Negro"}, {5001, "Blanco"}, {5002, "Gris"}, {5003, "Rojo"}, {5004, "Azul"}};
+    eAuto listaAutos[TAM_A] ={{3000, "AS123DS", 1004, 5003, 2000, 1}, {3001, "FD789NL", 1002, 5001, 1985, 1}};
+    eMarca listaMarcas[TAM_M] ={{1000, "Renault"}, {1001, "Fiat"}, {1002, "Ford"}, {1003, "Chevrolet"}, {1004, "Peugeot"}};
+    eColor listaColores[TAM_C] ={{5000, "Negro"}, {5001, "Blanco"}, {5002, "Gris"}, {5003, "Rojo"}, {5004, "Azul"}};
+    eServicio listaServicios[TAM_S] ={{20000, "Lavado", 250}, {20001, "Pulido", 300}, {20002, "Encerado", 400}, {20003, "Completo", 600}};
     /*if(!inicializarAutos(listaAutos, TAM_A))
     {
         printf("Inicializacion exitosa!!\n\n");
@@ -82,6 +86,8 @@ int main()
             mostrarColores(listaColores, TAM_C);
             break;
         case 'g':
+            system("cls");
+            mostrarServicios(listaServicios, TAM_S);
             break;
         case 'h':
             break;
