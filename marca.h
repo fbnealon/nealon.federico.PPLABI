@@ -9,6 +9,8 @@ typedef struct
 
 int cargarMarca(eMarca marcas[], int tamMarcas, int id, char descripcion[]);
 
-int hardcodearMarcas(eMarca marcas[], int tam, int cant);
+int mostrarMarcas(eMarca marcas[], int tamMarcas);
+
+void mostrarMarca(eMarca unaMarca);
 
 #endif // MARCA_H_INCLUDED

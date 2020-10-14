@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include "input.h"
 #include "auto.h"
+#include "marca.h"
 
 #define TAM_A 10
 #define TAM_M 5
@@ -17,8 +18,8 @@ int main()
     int rta;
     int proximoIDAuto=3000;
     eAuto listaAutos[TAM_A] = {{3000, "AS123DS", 1004, 5003, 2000, 1}, {3001, "FD789NL", 1002, 5001, 1985, 1}};
-    eMarca marcas[TAM_M] = {{1000, "Renault"}, {1001, "Fiat"}, {1002, "Ford"}, {1003, "Chevrolet"}, {1004, "Peugeot"}};
-    eColor colores[TAM_C] = {{5000, "Negro"}, {5001, "Blanco"}, {5002, "Gris"}, {5003, "Rojo"}, {5004, "Azul"}};
+    eMarca listaMarcas[TAM_M] = {{1000, "Renault"}, {1001, "Fiat"}, {1002, "Ford"}, {1003, "Chevrolet"}, {1004, "Peugeot"}};
+    eColor listaColores[TAM_C] = {{5000, "Negro"}, {5001, "Blanco"}, {5002, "Gris"}, {5003, "Rojo"}, {5004, "Azul"}};
     /*if(!inicializarAutos(listaAutos, TAM_A))
     {
         printf("Inicializacion exitosa!!\n\n");
@@ -34,7 +35,7 @@ int main()
         switch(menu())
         {
         case 'a':
-            if(!altaAuto(listaAutos, TAM_A, proximoIDAuto, marcas, TAM_M, colores, TAM_C))
+            if(!altaAuto(listaAutos, TAM_A, proximoIDAuto, listaMarcas, TAM_M, listaColores, TAM_C))
             {
                 proximoIDAuto++;
                 printf("Alta exitosa!!\n\n");
@@ -45,15 +46,15 @@ int main()
             }
             break;
         case 'b':
-            if(mostrarAutos(listaAutos, TAM_A, marcas, TAM_M, colores, TAM_C)!=2)
+            if(mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C)!=2)
             {
-                modificarAuto(listaAutos, TAM_A, marcas, TAM_M, colores, TAM_C);
+                modificarAuto(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
             }
             break;
         case 'c':
-            if(mostrarAutos(listaAutos, TAM_A, marcas, TAM_M, colores, TAM_C)!=2)
+            if(mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C)!=2)
             {
-                rta = bajaAuto(listaAutos, TAM_A, marcas, TAM_M, colores, TAM_C);
+                rta = bajaAuto(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
                 if(rta == 0)
                 {
                     printf("Baja realizada con exito\n\n");
@@ -70,11 +71,15 @@ int main()
             break;
         case 'd':
             system("cls");
-            mostrarAutos(listaAutos, TAM_A, marcas, TAM_M, colores, TAM_C);
+            mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
             break;
         case 'e':
+            system("cls");
+            mostrarMarcas(listaMarcas, TAM_M);
             break;
         case 'f':
+            system("cls");
+            mostrarColores(listaColores, TAM_C);
             break;
         case 'g':
             break;

@@ -9,5 +9,8 @@ typedef struct
 
 int cargarColor(eColor colores[], int tamColores, int id, char descripcion[]);
 
+int mostrarColores(eColor colores[], int tamColores);
+
+void mostrarColor(eColor unColor);
 
 #endif // COLOR_H_INCLUDED

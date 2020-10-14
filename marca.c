@@ -29,10 +29,11 @@ int mostrarMarcas(eMarca marcas[], int tamMarcas)
     int flag=0;
     if(marcas != NULL && tamMarcas>0)
     {
-        printf("ID          NOMBRE\n\n");
+        printf("ID                     NOMBRE\n\n");
         for(int i=0; i<tamMarcas; i++)
         {
             mostrarMarca(marcas[i]);
+            flag=1;
         }
         if (flag==0)
         {
@@ -45,5 +46,5 @@ int mostrarMarcas(eMarca marcas[], int tamMarcas)
 
 void mostrarMarca(eMarca unaMarca)
 {
-    printf("4d     20s\n", unaMarca.id, unaMarca.descripcion);
+    printf("%4d     %20s\n", unaMarca.id, unaMarca.descripcion);
 }
