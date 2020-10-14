@@ -5,6 +5,23 @@
 #include "servicio.h"
 #include "input.h"
 
+int cargarServicio(eServicio servicios[], int tamServicios, int id, char descripcion[])
+{
+    int error=1;
+    if(servicios != NULL && tamServicios>0 && id>0)
+    {
+        for(int i=0; i<tamServicios; i++)
+        {
+            if(servicios[i].id == id)
+            {
+                strcpy(descripcion, servicios[i].descripcion);
+            }
+        }
+        error=0;
+    }
+    return error;
+}
+
 int mostrarServicios(eServicio servicios[], int tamServicios)
 {
     int error=1;

@@ -8,4 +8,6 @@ typedef struct
     int anio;
 }eFecha;
 
+eFecha solicitarFecha(eFecha nuevaFecha);
+
 #endif // FECHA_H_INCLUDED

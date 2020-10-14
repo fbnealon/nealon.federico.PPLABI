@@ -7,12 +7,13 @@
 #include "marca.h"
 #include "servicio.h"
 #include "fecha.h"
+#include "trabajo.h"
 
 #define TAM_A 10
 #define TAM_M 5
 #define TAM_C 5
 #define TAM_S 4
-
+#define TAM_T 1000
 
 int main()
 {
@@ -20,20 +21,31 @@ int main()
     char confirma;
     int rta;
     int proximoIDAuto=3000;
+    //int proximoIDTrabajos= 100000;
     eAuto listaAutos[TAM_A] ={{3000, "AS123DS", 1004, 5003, 2000, 1}, {3001, "FD789NL", 1002, 5001, 1985, 1}};
     eMarca listaMarcas[TAM_M] ={{1000, "Renault"}, {1001, "Fiat"}, {1002, "Ford"}, {1003, "Chevrolet"}, {1004, "Peugeot"}};
     eColor listaColores[TAM_C] ={{5000, "Negro"}, {5001, "Blanco"}, {5002, "Gris"}, {5003, "Rojo"}, {5004, "Azul"}};
     eServicio listaServicios[TAM_S] ={{20000, "Lavado", 250}, {20001, "Pulido", 300}, {20002, "Encerado", 400}, {20003, "Completo", 600}};
+    eTrabajo listaTrabajos[TAM_T];
     /*if(!inicializarAutos(listaAutos, TAM_A))
     {
-        printf("Inicializacion exitosa!!\n\n");
+        printf("Inicializacion de autos exitosa!!\n\n");
     }
     else
     {
         printf("Error al inicializar\n\n");
 
     }
-    system("pause");*/
+    */
+    if(!inicializarTrabajos(listaTrabajos, TAM_T))
+    {
+        printf("Inicializacion de trabajos exitosa!!\n\n");
+    }
+    else
+    {
+        printf("Error al inicializar\n\n");
+    }
+    system("pause");
     do
     {
         switch(menu())
@@ -90,8 +102,23 @@ int main()
             mostrarServicios(listaServicios, TAM_S);
             break;
         case 'h':
+            /*rta = altaTrabajo(listaTrabajos, TAM_T, proximoIDTrabajos, listaAutos, TAM_A,  listaMarcas, TAM_M,  listaColores, TAM_C, listaServicios, TAM_S);
+            if(rta==0)
+            {
+                printf("Alta exitosa!!\n\n");
+                proximoIDTrabajos++;
+            }
+            else if(rta==2)
+            {
+                printf("Alta cancelada por el usuario\n\n");
+            }
+            else
+            {
+                printf("Problemas al intentar cargar un nuevo trabajo\n\n");
+            }*/
             break;
         case 'i':
+            mostrarTrabajos(listaTrabajos, TAM_T, listaServicios, TAM_S);
             break;
         case 'z':
             confirma = getLetter("Confirma salida?: ", "Caracter invalido, intente de nuevo: ");

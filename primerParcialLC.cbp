@@ -40,6 +40,9 @@
 		</Unit>
 		<Unit filename="color.h" />
 		<Unit filename="datastore.h" />
+		<Unit filename="fecha.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="fecha.h" />
 		<Unit filename="input.c">
 			<Option compilerVar="CC" />

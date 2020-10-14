@@ -8,6 +8,8 @@ typedef struct
     int precio;
 }eServicio;
 
+int cargarServicio(eServicio servicios[], int tamServicios, int id, char descripcion[]);
+
 int mostrarServicios(eServicio servicios[], int tamServicios);
 
 void mostrarServicio(eServicio unServicio);
