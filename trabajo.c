@@ -111,6 +111,7 @@ int mostrarTrabajos(eTrabajo trabajos[], int tamTrabajos, eServicio servicios[],
                 flag=1;
             }
         }
+        printf("\n\n");
         if (flag==0)
         {
             printf("    No hay trabajos cargados en la lista\n\n");

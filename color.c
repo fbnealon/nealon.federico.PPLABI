@@ -35,6 +35,7 @@ int mostrarColores(eColor colores[], int tamColores)
             mostrarColor(colores[i]);
             flag=1;
         }
+        printf("\n\n");
         if (flag==0)
         {
             printf("    No hay marcas cargadas en la lista\n\n");

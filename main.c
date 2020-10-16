@@ -22,7 +22,7 @@ int main()
     int rta;
     int proximoIDAuto=3000;
     int proximoIDTrabajos= 100000;
-    eAuto listaAutos[TAM_A] ={{3000, "AS123DS", 1004, 5003, 2000, 1}, {3001, "FD789NL", 1002, 5001, 1985, 1}};
+    eAuto listaAutos[TAM_A] ={{3000, "AS123DS", 1004, 5003, 2000, 1}, {3001, "FD789NL", 1002, 5001, 1985, 1}, {3002, "BC123AD", 1003, 5004, 2010, 1}, {3003, "AN654AS", 1003, 5000, 2020, 1}};
     eMarca listaMarcas[TAM_M] ={{1000, "Renault"}, {1001, "Fiat"}, {1002, "Ford"}, {1003, "Chevrolet"}, {1004, "Peugeot"}};
     eColor listaColores[TAM_C] ={{5000, "Negro"}, {5001, "Blanco"}, {5002, "Gris"}, {5003, "Rojo"}, {5004, "Azul"}};
     eServicio listaServicios[TAM_S] ={{20000, "Lavado", 250}, {20001, "Pulido", 300}, {20002, "Encerado", 400}, {20003, "Completo", 600}};
@@ -87,7 +87,10 @@ int main()
             break;
         case 'd':
             system("cls");
-            mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
+            if(!ordenarAutosXMarcaYPatente(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C))
+            {
+                mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
+            }
             break;
         case 'e':
             system("cls");

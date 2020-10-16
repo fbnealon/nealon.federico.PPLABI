@@ -35,6 +35,7 @@ int mostrarMarcas(eMarca marcas[], int tamMarcas)
             mostrarMarca(marcas[i]);
             flag=1;
         }
+        printf("\n\n");
         if (flag==0)
         {
             printf("    No hay marcas cargadas en la lista\n\n");

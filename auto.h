@@ -31,7 +31,8 @@ int bajaAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor
 
 int modificarAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores);
 
-int modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores);
+eAuto modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores);
 
+int ordenarAutosXMarcaYPatente(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores);
 
 #endif // AUTO_H_INCLUDED

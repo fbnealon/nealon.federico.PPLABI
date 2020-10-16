@@ -77,7 +77,7 @@ int mostrarAutos(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eC
     int flag=0;
     if(autos != NULL && tamAutos>0)
     {
-        printf("ID         Patente             Marca             Color        Modelo\n\n");
+        printf(" ID      Patente               Marca               Color     Modelo\n\n");
         for(int i=0; i<tamAutos; i++)
         {
             if(autos[i].isEmpty == 1)
@@ -86,6 +86,7 @@ int mostrarAutos(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eC
                 flag=1;
             }
         }
+        printf("\n\n");
         error=0;
         if (flag==0)
         {
@@ -215,7 +216,7 @@ int modificarAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, e
     char auxCad[20];
     char confirma;
 
-    if(autos != NULL && tamAutos>0)
+    if(autos != NULL && tamAutos>0 && marcas != NULL && tamMarcas>0 && colores != NULL && tamColores>0)
     {
         system("cls");
         printf("***            **** Modificar auto ****            ***\n\n\n");
@@ -226,11 +227,13 @@ int modificarAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, e
         {
             if(strcmp(auxCad, autos[i].patente)==0 && autos[i].isEmpty!=LIBRE)
             {
+                printf("\n");
                 mostrarAuto(autos[i], marcas, tamMarcas, colores, tamColores);
+                printf("\n");
                 confirma = getLetter("Confirma modificacion? ", "Caracter invalido, intente de nuevo: ");
                 if(confirma == 's')
                 {
-                    modificaciones(autos[i], marcas, tamMarcas, colores, tamColores);
+                    autos[i] = modificaciones(autos[i], marcas, tamMarcas, colores, tamColores);
                     error=0;
                 }
                 else
@@ -243,64 +246,67 @@ int modificarAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, e
     return error;
 }
 
-int modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores)
+eAuto modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores)
 {
-    int error=-1;
+    eAuto auxAuto= unAuto;
     char opcion;
-    char confirma='s';
+    char confirma='n';
     char auxCad[20];
+    int auxModelo;
 
     if(marcas != NULL && tamMarcas>0 && colores != NULL && tamColores>0)
     {
-        system("cls");
-        printf("          ***   Modificaciones de auto   ***\n\n\n");
-        printf("a Modificar color\n");
-        printf("b Modificar Modelo\n");
-        printf("c Salir\n");
-        opcion = getLetter("Ingrese opcion: ", "Caracter invalido, intente de nuevo: ");
         do
         {
+            system("cls");
+            printf("          ***   Modificaciones de auto   ***\n\n\n");
+            mostrarAuto(unAuto, marcas, tamMarcas, colores, tamColores);
+            printf("\n");
+            printf("a Modificar color\n");
+            printf("b Modificar Modelo\n");
+            printf("c Salir\n");
+            opcion = getLetter("Ingrese opcion: ", "Caracter invalido, intente de nuevo: ");
             switch(opcion)
             {
             case 'a':
-                getStrings("Ingrese nuevo color: ", "Color invalido, intente de nuevo: ", 20, auxCad);
-                for(int i=0; i<tamColores; i++)
+                if(!mostrarColores(colores, tamColores))
                 {
-                    if(stricmp(auxCad, colores[i].nombreColor)==0)
+                    getStrings("Ingrese nuevo color: ", "Color invalido, intente de nuevo: ", 20, auxCad);
+                    for(int i=0; i<tamColores; i++)
                     {
-                        confirma= getLetter("Confirma cambio de color?: ", "Caracter invalido, intente de nuevo: ");
-                        if(confirma=='s')
+                        if(stricmp(auxCad, colores[i].nombreColor)==0)
                         {
-                            unAuto.idColor = colores[i].id;
-                            printf("Cambio de color confirmado\n\n");
-                        }
-                        else
-                        {
-                            printf("Cambio de color cancelado por el usuario\n\n");
+                            printf("Color nuevo: %s\n", colores[i].nombreColor);
+                            confirma= getLetter("Confirma cambio de color?: ", "Caracter invalido, intente de nuevo: ");
+                            if(confirma=='s')
+                            {
+                                auxAuto.idColor=colores[i].id;
+                                printf("Cambio de color confirmado\n\n");
+                                break;
+                            }
+                            else
+                            {
+                                printf("Cambio de color cancelado por el usuario\n\n");
+                            }
                         }
                     }
-                    break;
+                    system("pause");
+
                 }
                 break;
             case 'b':
-                getStrings("Ingrese nuevo color: ", "Color invalido, intente de nuevo: ", 20, auxCad);
-                for(int i=0; i<tamMarcas; i++)
+                auxModelo= getInt("Ingrese nuevo modelo (1950 a 2020): ", "Modelo invalido, intente de nuevo: ", 1950, 2020);
+                confirma= getLetter("Confirma cambio de modelo?: ", "Caracter invalido, intente de nuevo: ");
+                if(confirma=='s')
                 {
-                    if(stricmp(auxCad, marcas[i].descripcion)==0)
-                    {
-                        confirma= getLetter("Confirma cambio de color?: ", "Caracter invalido, intente de nuevo: ");
-                        if(confirma=='s')
-                        {
-                            unAuto.idMarca = marcas[i].id;
-                            printf("Cambio de marca confirmado\n\n");
-                        }
-                        else
-                        {
-                            printf("Cambio de marca cancelado por el usuario\n\n");
-                        }
-                    }
-                    break;
+                    auxAuto.modelo=auxModelo;
+                    printf("Cambio de modelo confirmado\n\n");
                 }
+                else
+                {
+                    printf("Cambio de modelo cancelado por el usuario\n\n");
+                }
+                system("pause");
                 break;
             case 'c':
                 printf("Saliendo del menu de modificaciones...\n\n\n");
@@ -309,7 +315,34 @@ int modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[
                 printf("Ha ingresado una opcion invalida\n\n");
                 break;
             }
-        }while(opcion != 'c');
+            unAuto=auxAuto;
+        }
+        while(opcion != 'c');
+    }
+    return unAuto;
+}
+
+int ordenarAutosXMarcaYPatente(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores)
+{
+    int error=1;
+    char descripcionI[20], descripcionJ[20];
+    eAuto auxAuto;
+    if(autos != NULL && tamAutos>0 && marcas != NULL && tamMarcas>0 && colores != NULL && tamColores>0)
+    {
+        for(int i=0; i<tamAutos-1; i++)
+        {
+            cargarMarca(marcas, tamMarcas, autos[i].idMarca, descripcionI);
+            for(int j=i+1; j<tamAutos; j++)
+            {
+                cargarMarca(marcas, tamMarcas, autos[j].idMarca, descripcionJ);
+                if(stricmp(descripcionI, descripcionJ)>0 || (stricmp(descripcionI, descripcionJ)==0 && stricmp(autos[i].patente, autos[j].patente)>0))
+                {
+                    auxAuto=autos[i];
+                    autos[i]=autos[j];
+                    autos[j]=auxAuto;
+                }
+            }
+        }
         error=0;
     }
     return error;

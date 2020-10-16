@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1602700466 source:d:\federico\documents\progra i\nealon.federico.pplabi\main.c
+1602885972 source:d:\federico\documents\progra i\nealon.federico.pplabi\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -20,7 +20,7 @@
 	<string.h>
 	<ctype.h>
 
-1602685351 source:d:\federico\documents\progra i\nealon.federico.pplabi\auto.c
+1602888304 source:d:\federico\documents\progra i\nealon.federico.pplabi\auto.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -30,11 +30,11 @@
 	"color.h"
 	"input.h"
 
-1602683907 d:\federico\documents\progra i\nealon.federico.pplabi\auto.h
+1602888291 d:\federico\documents\progra i\nealon.federico.pplabi\auto.h
 	"marca.h"
 	"color.h"
 
-1602686035 source:d:\federico\documents\progra i\nealon.federico.pplabi\color.c
+1602884876 source:d:\federico\documents\progra i\nealon.federico.pplabi\color.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -42,7 +42,7 @@
 	"color.h"
 	"input.h"
 
-1602685629 source:d:\federico\documents\progra i\nealon.federico.pplabi\marca.c
+1602884876 source:d:\federico\documents\progra i\nealon.federico.pplabi\marca.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -50,7 +50,7 @@
 	"marca.h"
 	"input.h"
 
-1602689706 source:d:\federico\documents\progra i\nealon.federico.pplabi\servicio.c
+1602884876 source:d:\federico\documents\progra i\nealon.federico.pplabi\servicio.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -58,7 +58,7 @@
 	"servicio.h"
 	"input.h"
 
-1602700595 source:d:\federico\documents\progra i\nealon.federico.pplabi\trabajo.c
+1602884876 source:d:\federico\documents\progra i\nealon.federico.pplabi\trabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
