@@ -91,14 +91,15 @@ int main()
             }
             break;
         case 'd':
-            system("cls");
-            mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
+            //system("cls");
+            //mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
             if(ordenarAutosXMarcaYPatente(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C))
             {
                 printf("Error al ordenar\n\n");
             }
             else
             {
+                printf("\n\n");
                 mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
             }
             break;
