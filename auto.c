@@ -112,6 +112,9 @@ int altaAuto(eAuto autos[], int tam, int idAuto, eMarca marcas[], int tamMarcas,
     int error=1, index;
     eAuto nuevoAuto;
     char auxCad[20];
+    char auxMarca[20];
+    char auxColor[20];
+    char confirma;
     int fEncontro=1;
 
     if(autos != NULL && tam>0 && idAuto>0)
@@ -129,11 +132,17 @@ int altaAuto(eAuto autos[], int tam, int idAuto, eMarca marcas[], int tamMarcas,
 
             nuevoAuto.isEmpty= 1;
 
-            getStrings("Ingrese patente: ", "Demasiado largo, intente de nuevo: ", 10, nuevoAuto.patente);
+            do
+            {
+                getStrings("Ingrese patente: ", "Demasiado largo, intente de nuevo: ", 10, nuevoAuto.patente);
+            }while (strlen(nuevoAuto.patente)<6 || strlen(nuevoAuto.patente)>7);
             strupr(nuevoAuto.patente);
 
             do
             {
+                system("cls");
+                printf("PATENTE: %s\n\n", nuevoAuto.patente);
+                mostrarMarcas(marcas, tamMarcas);
                 getStrings("Ingrese marca: ", "Demasiado largo, intente de nuevo: ", 20, auxCad);
                 for(int i=0; i<tamMarcas; i++)
                 {
@@ -141,6 +150,7 @@ int altaAuto(eAuto autos[], int tam, int idAuto, eMarca marcas[], int tamMarcas,
                     {
                         nuevoAuto.idMarca=  marcas[i].id;
                         fEncontro=0;
+                        cargarMarca(marcas, tamMarcas, marcas[i].id, auxMarca);
                         break;
                     }
                 }
@@ -149,6 +159,9 @@ int altaAuto(eAuto autos[], int tam, int idAuto, eMarca marcas[], int tamMarcas,
             fEncontro=1;
             do
             {
+                system("cls");
+                printf("PATENTE: %s\nMARCA: %s\n\n", nuevoAuto.patente, auxMarca);
+                mostrarColores(colores, tamColores);
                 getStrings("Ingrese color: ", "Demasiado largo, intente de nuevo: ", 20, auxCad);
                 for(int i=0; i<tamColores; i++)
                 {
@@ -156,17 +169,29 @@ int altaAuto(eAuto autos[], int tam, int idAuto, eMarca marcas[], int tamMarcas,
                     {
                         nuevoAuto.idColor=  colores[i].id;
                         fEncontro=0;
+                        cargarColor(colores, tamColores, colores[i].id, auxColor);
                         break;
                     }
                 }
             }
             while(fEncontro==1);
 
+            system("cls");
+            printf("PATENTE: %s\nMARCA: %s\nCOLOR: %s\n\n", nuevoAuto.patente, auxMarca, auxColor);
             nuevoAuto.modelo = getInt("Ingrese el modelo del auto: ", "Anio invalido, intente de nuevo: ", 1900, 2020);
+            system("cls");
+            printf("PATENTE: %s\nMARCA: %s\nCOLOR: %s\nMODELO: %d\n\n", nuevoAuto.patente, auxMarca, auxColor, nuevoAuto.modelo);
+            confirma=getLetter("Confirma alta?: ", "Caracter invalido, intente de nuevo: ");
+            if(confirma=='s')
+            {
+                autos[index] = nuevoAuto;
+                error=0;
+            }
+            else
+            {
+                error=2;
+            }
 
-            autos[index] = nuevoAuto;
-
-            error=0;
         }
     }
     return error;

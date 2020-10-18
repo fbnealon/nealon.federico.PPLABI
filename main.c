@@ -20,7 +20,7 @@ int main()
     char seguir = 's';
     char confirma;
     int rta;
-    int proximoIDAuto=3000;
+    int proximoIDAuto=3004;
     int proximoIDTrabajos= 100000;
     eAuto listaAutos[TAM_A] ={{3000, "AS123DS", 1004, 5003, 2000, 1}, {3001, "FD789NL", 1002, 5001, 1985, 1}, {3002, "BC123AD", 1003, 5004, 2010, 1}, {3003, "AN654AS", 1003, 5000, 2020, 1}};
     eMarca listaMarcas[TAM_M] ={{1000, "Renault"}, {1001, "Fiat"}, {1002, "Ford"}, {1003, "Chevrolet"}, {1004, "Peugeot"}};
@@ -51,14 +51,19 @@ int main()
         switch(menu())
         {
         case 'a':
-            if(!altaAuto(listaAutos, TAM_A, proximoIDAuto, listaMarcas, TAM_M, listaColores, TAM_C))
+            rta=altaAuto(listaAutos, TAM_A, proximoIDAuto, listaMarcas, TAM_M, listaColores, TAM_C);
+            if(rta==0)
             {
                 proximoIDAuto++;
                 printf("Alta exitosa!!\n\n");
             }
-            else
+            else if(rta==1)
             {
                 printf("No se pudo realizar el alta...\n\n");
+            }
+            else
+            {
+                printf("Alta cancelada por el usuario\n");
             }
             break;
         case 'b':
@@ -87,7 +92,12 @@ int main()
             break;
         case 'd':
             system("cls");
-            if(!ordenarAutosXMarcaYPatente(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C))
+            mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
+            if(ordenarAutosXMarcaYPatente(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C))
+            {
+                printf("Error al ordenar\n\n");
+            }
+            else
             {
                 mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
             }
@@ -121,6 +131,7 @@ int main()
             }
             break;
         case 'i':
+            system("cls");
             mostrarTrabajos(listaTrabajos, TAM_T, listaServicios, TAM_S);
             break;
         case 'z':
