@@ -178,7 +178,7 @@ int altaAuto(eAuto autos[], int tam, int idAuto, eMarca marcas[], int tamMarcas,
 
             system("cls");
             printf("PATENTE: %s\nMARCA: %s\nCOLOR: %s\n\n", nuevoAuto.patente, auxMarca, auxColor);
-            nuevoAuto.modelo = getInt("Ingrese el modelo del auto: ", "Anio invalido, intente de nuevo: ", 1900, 2020);
+            nuevoAuto.modelo = getInt("Ingrese el modelo del auto (de 1900 a 2020): ", "Anio invalido, intente de nuevo: ", 1900, 2020);
             system("cls");
             printf("PATENTE: %s\nMARCA: %s\nCOLOR: %s\nMODELO: %d\n\n", nuevoAuto.patente, auxMarca, auxColor, nuevoAuto.modelo);
             confirma=getLetter("Confirma alta?: ", "Caracter invalido, intente de nuevo: ");
@@ -360,7 +360,7 @@ int ordenarAutosXMarcaYPatente(eAuto autos[], int tamAutos, eMarca marcas[], int
             for(int j=i+1; j<tamAutos; j++)
             {
                 cargarMarca(marcas, tamMarcas, autos[j].idMarca, descripcionJ);
-                if(stricmp(descripcionI, descripcionJ)>0 || (stricmp(descripcionI, descripcionJ)==0 && stricmp(autos[i].patente, autos[j].patente)>0))
+                if(strcmp(descripcionI, descripcionJ)>0 || (strcmp(descripcionI, descripcionJ)==0 && stricmp(autos[i].patente, autos[j].patente)>0))
                 {
                     auxAuto=autos[i];
                     autos[i]=autos[j];

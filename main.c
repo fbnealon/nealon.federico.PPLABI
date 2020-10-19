@@ -91,16 +91,16 @@ int main()
             }
             break;
         case 'd':
-            //system("cls");
-            //mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
-            if(ordenarAutosXMarcaYPatente(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C))
+            if(!ordenarAutosXMarcaYPatente(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C))
             {
-                printf("Error al ordenar\n\n");
+                system("cls");
+                printf("              ***LISTA DE AUTOS POR MARCA Y PATENTE***\n\n");
+                mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
+
             }
             else
             {
-                printf("\n\n");
-                mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
+                printf("Error al ordenar\n\n");
             }
             break;
         case 'e':

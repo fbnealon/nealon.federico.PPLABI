@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1602980950 source:d:\federico\documents\progra i\nealon.federico.pplabi\main.c
+1603114662 source:d:\federico\documents\progra i\nealon.federico.pplabi\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -20,7 +20,7 @@
 	<string.h>
 	<ctype.h>
 
-1602980914 source:d:\federico\documents\progra i\nealon.federico.pplabi\auto.c
+1603114724 source:d:\federico\documents\progra i\nealon.federico.pplabi\auto.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
