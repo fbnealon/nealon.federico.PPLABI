@@ -16,9 +16,9 @@ int cargarColor(eColor colores[], int tamColores, int id, char descripcion[])
             if(colores[i].id == id)
             {
                 strcpy(descripcion, colores[i].nombreColor);
+                error=0;
             }
         }
-        error=0;
     }
     return error;
 }

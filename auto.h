@@ -35,4 +35,19 @@ eAuto modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colore
 
 int ordenarAutosXMarcaYPatente(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores);
 
+char menuInformes();
+
+int informar(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC);
+
+int mostrarAutosDeColor(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, int idColor);
+
+int mostrarAutosDeMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, int idMarca);
+
+int mostrarMasAntiguo(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC);
+
+int mostrarXMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC);
+
+int contarXColorYMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, int idColor, int idMarca);
+
+
 #endif // AUTO_H_INCLUDED

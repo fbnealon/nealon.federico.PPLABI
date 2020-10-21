@@ -16,9 +16,9 @@ int cargarMarca(eMarca marcas[], int tamMarcas, int id, char descripcion[])
             if(marcas[i].id == id)
             {
                 strcpy(descripcion, marcas[i].descripcion);
+                error=0;
             }
         }
-        error=0;
     }
     return error;
 }

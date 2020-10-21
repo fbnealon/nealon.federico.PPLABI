@@ -89,7 +89,7 @@
 
 1602681136 d:\federico\documents\progra i\nealon.federico.pplabi\datastore.h
 
-1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\auto.c
+1603290359 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\auto.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -99,7 +99,7 @@
 	"color.h"
 	"input.h"
 
-1603280956 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\auto.h
+1603290359 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\auto.h
 	"marca.h"
 	"color.h"
 
@@ -113,7 +113,7 @@
 	<string.h>
 	<ctype.h>
 
-1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\color.c
+1603287976 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\color.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -134,7 +134,7 @@
 1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\input.c
 	"input.h"
 
-1603281108 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\main.c
+1603290382 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -150,7 +150,7 @@
 
 1603280956 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\trabajo.h
 
-1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\marca.c
+1603287976 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\marca.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -166,7 +166,7 @@
 	"servicio.h"
 	"input.h"
 
-1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\trabajo.c
+1603288467 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\trabajo.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -176,4 +176,14 @@
 	"servicio.h"
 	"trabajo.h"
 	"input.h"
+
+1603288181 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"cliente.h"
+	"input.h"
+
+1603288169 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\cliente.h
 

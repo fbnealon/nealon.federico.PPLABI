@@ -102,7 +102,7 @@ int mostrarTrabajos(eTrabajo trabajos[], int tamTrabajos, eServicio servicios[],
     int flag=0;
     if(trabajos != NULL && tamTrabajos>0)
     {
-        printf("ID     PATENTE               SERVICIO       FECHA\n\n");
+        printf("ID        PATENTE               SERVICIO       FECHA\n\n");
         for(int i=0; i<tamTrabajos; i++)
         {
             if(trabajos[i].isEmpty != 0)
