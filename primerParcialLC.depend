@@ -89,3 +89,91 @@
 
 1602681136 d:\federico\documents\progra i\nealon.federico.pplabi\datastore.h
 
+1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"auto.h"
+	"marca.h"
+	"color.h"
+	"input.h"
+
+1603280956 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\auto.h
+	"marca.h"
+	"color.h"
+
+1603280956 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\marca.h
+
+1603280956 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\color.h
+
+1603280956 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\input.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\color.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"color.h"
+	"input.h"
+
+1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\fecha.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"fecha.h"
+	"input.h"
+
+1603280956 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\fecha.h
+
+1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\input.c
+	"input.h"
+
+1603281108 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"input.h"
+	"auto.h"
+	"marca.h"
+	"servicio.h"
+	"fecha.h"
+	"trabajo.h"
+
+1603280956 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\servicio.h
+
+1603280956 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\trabajo.h
+
+1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\marca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"marca.h"
+	"input.h"
+
+1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\servicio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"servicio.h"
+	"input.h"
+
+1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"fecha.h"
+	"auto.h"
+	"servicio.h"
+	"trabajo.h"
+	"input.h"
+

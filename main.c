@@ -67,10 +67,19 @@ int main()
             }
             break;
         case 'b':
-            if(mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C)!=2)
-            {
-                modificarAuto(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
-            }
+            rta=modificarAuto(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
+            if(rta == 0)
+                {
+                    printf("Modificacion realizada con exito\n\n");
+                }
+                else if (rta==2)
+                {
+                    printf("Modificacion cancelada por el usuario\n\n");
+                }
+                else
+                {
+                    printf("Problemas con la modificacion\n\n");
+                }
             break;
         case 'c':
             if(mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C)!=2)
