@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 #include "cliente.h"
-#include "input.h"
 
 
 int cargarCliente(eCliente clientes[], int tamClientes, int id, char descripcion[])

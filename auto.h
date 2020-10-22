@@ -1,7 +1,16 @@
 #ifndef AUTO_H_INCLUDED
 #define AUTO_H_INCLUDED
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 #include "marca.h"
 #include "color.h"
+#include "input.h"
+
+#define LIBRE 0
+
 
 typedef struct
 {
@@ -34,20 +43,5 @@ int modificarAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, e
 eAuto modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores);
 
 int ordenarAutosXMarcaYPatente(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores);
-
-char menuInformes();
-
-int informar(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC);
-
-int mostrarAutosDeColor(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, int idColor);
-
-int mostrarAutosDeMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, int idMarca);
-
-int mostrarMasAntiguo(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC);
-
-int mostrarXMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC);
-
-int contarXColorYMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, int idColor, int idMarca);
-
 
 #endif // AUTO_H_INCLUDED

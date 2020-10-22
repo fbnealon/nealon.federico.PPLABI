@@ -1,6 +1,16 @@
 #ifndef TRABAJO_H_INCLUDED
 #define TRABAJO_H_INCLUDED
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include "fecha.h"
+#include "auto.h"
+#include "servicio.h"
+#include "input.h"
+
+
 typedef struct
 {
     int id; //autoincremental

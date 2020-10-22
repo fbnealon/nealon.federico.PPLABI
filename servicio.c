@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 #include "servicio.h"
-#include "input.h"
 
 int cargarServicio(eServicio servicios[], int tamServicios, int id, char descripcion[])
 {

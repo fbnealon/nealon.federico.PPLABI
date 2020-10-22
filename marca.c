@@ -1,9 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 #include "marca.h"
-#include "input.h"
+
 
 
 int cargarMarca(eMarca marcas[], int tamMarcas, int id, char descripcion[])

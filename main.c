@@ -8,6 +8,7 @@
 #include "servicio.h"
 #include "fecha.h"
 #include "trabajo.h"
+#include "informes.h"
 
 #define TAM_A 10
 #define TAM_M 5
@@ -103,10 +104,8 @@ int main()
         case 'd':
             if(!ordenarAutosXMarcaYPatente(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C))
             {
-                system("cls");
                 printf("              ***LISTA DE AUTOS POR MARCA Y PATENTE***\n\n");
                 mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
-
             }
             else
             {
@@ -147,7 +146,7 @@ int main()
             break;
         case 'j':
             system("cls");
-            informar(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
+            informar(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C, listaServicios, TAM_S, listaTrabajos, TAM_T);
             break;
         case 'z':
             confirma = getLetter("Confirma salida?: ", "Caracter invalido, intente de nuevo: ");

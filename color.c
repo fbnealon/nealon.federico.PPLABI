@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 #include "color.h"
-#include "input.h"
 
 
 int cargarColor(eColor colores[], int tamColores, int id, char descripcion[])

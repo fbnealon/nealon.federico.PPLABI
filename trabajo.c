@@ -1,12 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include "fecha.h"
-#include "auto.h"
-#include "servicio.h"
 #include "trabajo.h"
-#include "input.h"
 
 int inicializarTrabajos(eTrabajo trabajos[], int tamTrabajos)
 {
