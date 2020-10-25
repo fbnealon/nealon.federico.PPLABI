@@ -9,6 +9,7 @@
 #include "marca.h"
 #include "color.h"
 #include "trabajo.h"
+#include "fecha.h"
 #include "servicio.h"
 
 char menuInformes();
@@ -29,7 +30,11 @@ int marcasMasElegidas(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor
 
 int mostrarTrabajosXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS, char patente[]);
 
-int importesXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS, char patente[]);
+int mostrarImportesXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS, char patente[]);
+
+int mostrarAutosXServicio(eTrabajo trabajos[], int tamT, int idServicio);
+
+int mostrarServiciosXFecha(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS, eFecha fecha);
 
 
 #endif // INFORMES_H_INCLUDED

@@ -28,9 +28,11 @@ int informar(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[
     system("cls");
     int idColor;
     int idMarca;
+    int idServicio;
+    eFecha fecha;
     //int idAuto;
     //int idTrabajo;
-    char seguir= 's';
+    char seguir='s';
     char confirma;
     char patente[20];
     do
@@ -90,13 +92,37 @@ int informar(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[
             }
             break;
         case 'h':
-            //IMPORTES POR AUTO
+            system("cls");
+            mostrarAutos(autos, tamA, marcas, tamM, colores, tamC);
+            getStrings("Ingrese patente del auto: ", "Demasiado largo, intente de nuevo: ", 10, patente);
+            system("cls");
+            printf("      *** Informe de importes auto ***\n\n");
+            if(mostrarImportesXAuto(trabajos, tamT, servicios, tamS, patente))
+            {
+                printf("No hay servicios asignados al auto seleccionado\n\n");
+            }
             break;
         case 'i':
-            //AUTOS POR SERVICIO
+            system("cls");
+            mostrarServicios(servicios, tamS);
+            idServicio=getInt("Ingrese ID del servicio: ", "Intente de nuevo: ", 2000, 3000);
+            system("cls");
+            printf("      *** Informe de autos y fecha de servicio ***\n\n");
+            if(mostrarAutosXServicio(trabajos, tamT, idServicio))
+            {
+                printf("No hay servicios realizados del tipo elegido\n\n");
+            }
             break;
         case 'j':
-            //SERVICIOS POR FECHA
+            system("cls");
+            mostrarTrabajos(trabajos, tamT, servicios, tamS);
+            fecha=solicitarFecha(fecha);
+            system("cls");
+            printf("      *** Informe de servicios por fecha ***\n\n");
+            if(mostrarServiciosXFecha(trabajos, tamT, servicios, tamS, fecha))
+            {
+                printf("No hay servicios realizados en la fecha seleccionada\n\n");
+            }
             break;
         case 'z':
             confirma = getLetter("Confirma salida a menu principal?: ", "Caracter invalido, intente de nuevo: ");
@@ -307,6 +333,72 @@ int mostrarTrabajosXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], i
             if(stricmp(patente, trabajos[i].patente)==0 && trabajos[i].isEmpty!=0)
             {
                 mostrarTrabajo(trabajos[i], servicios, tamS);
+                error=0;
+            }
+        }
+    }
+    return error;
+}
+
+int mostrarImportesXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS, char patente[])
+{
+    int error=1;
+    int total=0;
+    if(trabajos != NULL && tamT>0 && servicios != NULL && tamS>0)
+    {
+        for(int i=0; i<tamT; i++)
+        {
+            if(stricmp(patente, trabajos[i].patente)==0 && trabajos[i].isEmpty!=0)
+            {
+                for(int j=0; j<tamS; j++)
+                {
+                    if(trabajos[i].idServicio==servicios[j].id)
+                    {
+                        total=+servicios[j].precio;
+                    }
+                }
+            }
+        }
+        if(total>0)
+        {
+            printf("El total de importes aplicados al auto de patente %s es de %d\n\n", strupr(patente), total);
+            error=0;
+        }
+    }
+    return error;
+}
+
+int mostrarAutosXServicio(eTrabajo trabajos[], int tamT, int idServicio)
+{
+    int error=1;
+    if(trabajos != NULL && tamT>0)
+    {
+        printf("PATENTE            FECHA\n\n");
+        for(int i=0; i<tamT; i++)
+        {
+            if(idServicio==trabajos[i].idServicio && trabajos[i].isEmpty!=LIBRE)
+            {
+                printf("%s           %d/%d/%d\n", trabajos[i].patente, trabajos[i].fecha.dia, trabajos[i].fecha.mes, trabajos[i].fecha.anio);
+                error=0;
+            }
+        }
+    }
+    return error;
+}
+
+int mostrarServiciosXFecha(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS, eFecha fecha)
+{
+    int error=1;
+    char servicio[20];
+    if(trabajos != NULL && tamT>0)
+    {
+        printf("SERVICIO            FECHA\n\n");
+        for(int i=0; i<tamT; i++)
+        {
+            if(fecha.dia==trabajos[i].fecha.dia && fecha.mes==trabajos[i].fecha.mes && fecha.anio==trabajos[i].fecha.anio && trabajos[i].isEmpty!=LIBRE)
+            {
+                cargarServicio(servicios, tamS, trabajos[i].idServicio, servicio);
+                printf("%s           %d/%d/%d\n", servicio, trabajos[i].fecha.dia, trabajos[i].fecha.mes, trabajos[i].fecha.anio);
                 error=0;
             }
         }

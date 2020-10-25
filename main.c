@@ -9,12 +9,21 @@
 #include "fecha.h"
 #include "trabajo.h"
 #include "informes.h"
+#include "cliente.h"
 
 #define TAM_A 10
 #define TAM_M 5
 #define TAM_C 5
 #define TAM_S 4
 #define TAM_T 1000
+#define TAM_CL 4
+
+//ID MARCAS 1000-1999
+//ID SERVICIOS 2000-2999
+//ID AUTOS 3000-3999
+//ID TRABAJOS 4000-4999
+//ID COLORES 5000-5999
+//ID CLIENTES 6000-6999
 
 int main()
 {
@@ -27,7 +36,8 @@ int main()
     eMarca listaMarcas[TAM_M] ={{1000, "Renault"}, {1001, "Fiat"}, {1002, "Ford"}, {1003, "Chevrolet"}, {1004, "Peugeot"}};
     eColor listaColores[TAM_C] ={{5000, "Negro"}, {5001, "Blanco"}, {5002, "Gris"}, {5003, "Rojo"}, {5004, "Azul"}};
     eServicio listaServicios[TAM_S] ={{2000, "Lavado", 250}, {2001, "Pulido", 300}, {2002, "Encerado", 400}, {2003, "Completo", 600}};
-    eTrabajo listaTrabajos[TAM_T] = { {4000, "AS123DS", 2000, {21,10,2020}, 1}, {4001, "AS123DS", 2003, {27,10,2020}, 1}, {4002, "BC123AD", 2000, {23,10,2020}, 1}};
+    eTrabajo listaTrabajos[TAM_T] = {{4000, "AS123DS", 2000, {21,10,2020}, 1}, {4001, "AS123DS", 2003, {27,10,2020}, 1}, {4002, "BC123AD", 2000, {23,10,2020}, 1}};
+    eCliente listaClientes[TAM_CL] = { {6000, "Federico", 'm'}, {6001, "Florencia", 'f'}, {6002, "Joaquin", 'm'}, {6003, "Nicolas", 'm'}}
 
     /*if(!inicializarAutos(listaAutos, TAM_A))
     {
@@ -46,8 +56,8 @@ int main()
     {
         printf("Error al inicializar\n\n");
     }
-    */
     system("pause");
+    */
     do
     {
         switch(menu())

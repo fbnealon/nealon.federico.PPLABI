@@ -92,7 +92,7 @@
 1603346712 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\auto.c
 	"auto.h"
 
-1603334927 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\auto.h
+1603659942 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\auto.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -100,6 +100,7 @@
 	"marca.h"
 	"color.h"
 	"input.h"
+	"cliente.h"
 
 1603303771 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\marca.h
 	<stdio.h>
@@ -124,7 +125,7 @@
 1603303789 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\color.c
 	"color.h"
 
-1603303570 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\fecha.c
+1603659495 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\fecha.c
 	"fecha.h"
 
 1603303570 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\fecha.h
@@ -137,7 +138,7 @@
 1603280956 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\input.c
 	"input.h"
 
-1603346681 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\main.c
+1603658508 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -186,7 +187,7 @@
 	<ctype.h>
 	"input.h"
 
-1603344575 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\informes.h
+1603659110 c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\informes.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -195,8 +196,9 @@
 	"marca.h"
 	"color.h"
 	"trabajo.h"
+	"fecha.h"
 	"servicio.h"
 
-1603344586 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\informes.c
+1603659409 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\informes.c
 	"informes.h"
 

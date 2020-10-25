@@ -8,6 +8,7 @@
 #include "marca.h"
 #include "color.h"
 #include "input.h"
+#include "cliente.h"
 
 #define LIBRE 0
 
@@ -19,6 +20,7 @@ typedef struct
     int idMarca; //VALIDAR
     int idColor;
     int modelo;
+    int idCliente;
     int isEmpty; //1 OCUPADO, 0 LIBRE
 }eAuto;
 
