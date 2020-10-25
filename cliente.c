@@ -8,7 +8,7 @@ int cargarCliente(eCliente clientes[], int tamClientes, int id, char descripcion
     {
         for(int i=0; i<tamClientes; i++)
         {
-            if(clientes[i].id == id)
+            if(clientes[i].id == id && clientes[i].isEmpty != 0)
             {
                 strcpy(descripcion, clientes[i].nombre);
                 error=0;

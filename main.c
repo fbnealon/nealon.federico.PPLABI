@@ -32,12 +32,12 @@ int main()
     int rta;
     int proximoIDAuto=3004;
     int proximoIDTrabajos= 4003;
-    eAuto listaAutos[TAM_A] ={{3000, "AS123DS", 1004, 5003, 2000, 1}, {3001, "FD789NL", 1002, 5001, 1985, 1}, {3002, "BC123AD", 1003, 5004, 2010, 1}, {3003, "AN654AS", 1003, 5000, 2020, 1}};
+    eAuto listaAutos[TAM_A] ={{3000, "AS123DS", 1004, 5003, 2000, 6000, 1}, {3001, "FD789NL", 1002, 5001, 1985, 6001, 1}, {3002, "BC123AD", 1003, 5004, 2010, 6002, 1}, {3003, "AN654AS", 1003, 5000, 2020, 6003, 1}};
     eMarca listaMarcas[TAM_M] ={{1000, "Renault"}, {1001, "Fiat"}, {1002, "Ford"}, {1003, "Chevrolet"}, {1004, "Peugeot"}};
     eColor listaColores[TAM_C] ={{5000, "Negro"}, {5001, "Blanco"}, {5002, "Gris"}, {5003, "Rojo"}, {5004, "Azul"}};
     eServicio listaServicios[TAM_S] ={{2000, "Lavado", 250}, {2001, "Pulido", 300}, {2002, "Encerado", 400}, {2003, "Completo", 600}};
     eTrabajo listaTrabajos[TAM_T] = {{4000, "AS123DS", 2000, {21,10,2020}, 1}, {4001, "AS123DS", 2003, {27,10,2020}, 1}, {4002, "BC123AD", 2000, {23,10,2020}, 1}};
-    eCliente listaClientes[TAM_CL] = { {6000, "Federico", 'm'}, {6001, "Florencia", 'f'}, {6002, "Joaquin", 'm'}, {6003, "Nicolas", 'm'}}
+    eCliente listaClientes[TAM_CL] = { {6000, "Federico", 'm', 1}, {6001, "Florencia", 'f', 1}, {6002, "Joaquin", 'm', 1}, {6003, "Nicolas", 'm', 1}};
 
     /*if(!inicializarAutos(listaAutos, TAM_A))
     {
@@ -79,7 +79,7 @@ int main()
             }
             break;
         case 'b':
-            rta=modificarAuto(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
+            rta=modificarAuto(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C, listaClientes, TAM_CL);
             if(rta == 0)
                 {
                     printf("Modificacion realizada con exito\n\n");
@@ -94,9 +94,9 @@ int main()
                 }
             break;
         case 'c':
-            if(mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C)!=2)
+            if(mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C, listaClientes, TAM_CL)!=2)
             {
-                rta = bajaAuto(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
+                rta = bajaAuto(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C, listaClientes, TAM_CL);
                 if(rta == 0)
                 {
                     printf("Baja realizada con exito\n\n");
@@ -115,7 +115,7 @@ int main()
             if(!ordenarAutosXMarcaYPatente(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C))
             {
                 printf("              ***LISTA DE AUTOS POR MARCA Y PATENTE***\n\n");
-                mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C);
+                mostrarAutos(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C, listaClientes, TAM_CL);
             }
             else
             {
@@ -135,7 +135,7 @@ int main()
             mostrarServicios(listaServicios, TAM_S);
             break;
         case 'h':
-            rta = altaTrabajo(listaTrabajos, TAM_T, proximoIDTrabajos, listaAutos, TAM_A,  listaMarcas, TAM_M,  listaColores, TAM_C, listaServicios, TAM_S);
+            rta = altaTrabajo(listaTrabajos, TAM_T, proximoIDTrabajos, listaAutos, TAM_A,  listaMarcas, TAM_M,  listaColores, TAM_C, listaServicios, TAM_S, listaClientes, TAM_CL);
             if(rta==0)
             {
                 printf("Alta exitosa!!\n\n");
@@ -156,7 +156,7 @@ int main()
             break;
         case 'j':
             system("cls");
-            informar(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C, listaServicios, TAM_S, listaTrabajos, TAM_T);
+            informar(listaAutos, TAM_A, listaMarcas, TAM_M, listaColores, TAM_C, listaServicios, TAM_S, listaTrabajos, TAM_T, listaClientes, TAM_CL);
             break;
         case 'z':
             confirma = getLetter("Confirma salida?: ", "Caracter invalido, intente de nuevo: ");

@@ -28,7 +28,7 @@ int buscarLibreTrabajo(eTrabajo trabajos[], int tam)
     return index;
 }
 
-int altaTrabajo(eTrabajo trabajos[], int tamTrabajos, int idTrabajos, eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eServicio servicios[], int tamServicios)
+int altaTrabajo(eTrabajo trabajos[], int tamTrabajos, int idTrabajos, eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eServicio servicios[], int tamServicios, eCliente clientes[], int tamCl)
 {
     int error=1, auxID, index;
     char confirma='s';
@@ -46,7 +46,7 @@ int altaTrabajo(eTrabajo trabajos[], int tamTrabajos, int idTrabajos, eAuto auto
         {
             system("cls");
             printf("   **** Alta trabajo ****\n\n\n");
-            mostrarAutos(autos, tamAutos, marcas, tamMarcas, colores, tamColores);
+            mostrarAutos(autos, tamAutos, marcas, tamMarcas, colores, tamColores, clientes, tamCl);
             auxID = getInt("Ingrese ID del auto a trabajar: ", "ID Incorrecto, intente de nuevo: ", 3000, 4000);
             for(int i=0; i<tamAutos; i++)
             {

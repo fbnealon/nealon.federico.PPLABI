@@ -12,6 +12,7 @@ typedef struct
     int id;
     char nombre[20];
     char sexo;
+    int isEmpty;
 }eCliente;
 
 int cargarCliente(eCliente clientes[], int tamClientes, int id, char descripcion[]);

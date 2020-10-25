@@ -24,7 +24,7 @@ int inicializarTrabajos(eTrabajo trabajos[], int tamTrabajos);
 
 int buscarLibreTrabajo(eTrabajo trabajos[], int tam);
 
-int altaTrabajo(eTrabajo trabajos[], int tamTrabajos, int idTrabajos, eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eServicio servicios[], int tamServicios);
+int altaTrabajo(eTrabajo trabajos[], int tamTrabajos, int idTrabajos, eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eServicio servicios[], int tamServicios, eCliente clientes[], int tamCl);
 
 int mostrarTrabajos(eTrabajo trabajos[], int tamTrabajos, eServicio servicios[], int tamServicios);
 
