@@ -4,6 +4,7 @@ int getInt(char message[], char errorMessage[], int min, int max)
 {
     int x;
     printf("%s", message);
+    fflush(stdin);
     scanf("%d", &x);
     while(x<min || x>max)
     {
@@ -20,6 +21,7 @@ float getFloat(char message[], char errorMessage[], float min, float max)
 {
     float x;
     printf("%s", message);
+    fflush(stdin);
     scanf("%f", &x);
     while(x<min || x>max)
     {
@@ -52,7 +54,7 @@ void getStrings(char message[], char errorMessage[], int len, char str[])
     fflush(stdin);
     gets(auxStr);
 
-    while(strlen(auxStr) >= len-1)
+    while(strlen(auxStr) > len)
     {
         printf("%s", errorMessage);
         fflush(stdin);

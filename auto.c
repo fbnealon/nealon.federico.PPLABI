@@ -1,11 +1,16 @@
 #include "auto.h"
 
+/** \brief Menu principal de ABM
+ *
+ * \return char
+ *
+ */
 char menu()
 {
     char opcion;
     system("cls");
 
-    printf("---------     *** ABM Autos ***      ---------\n\n");
+    printf("-----------------ABM AUTOS-----------------\n\n");
     printf("a Alta auto\n");
     printf("b Modificar auto\n");
     printf("c Baja auto\n");
@@ -22,7 +27,14 @@ char menu()
     return opcion;
 }
 
-int buscarLibre(eAuto autos[], int tam)
+/** \brief Busca un espacio libre en el vector de autos, retorna -1 si no encuentra
+ *
+ * \param autos[] eAuto
+ * \param tam int
+ * \return int
+ *
+ */
+int auto_buscarLibre(eAuto autos[], int tam)
 {
     int index=-1;
     for(int i=0; i<tam; i++)
@@ -36,7 +48,16 @@ int buscarLibre(eAuto autos[], int tam)
     return index;
 }
 
-int buscarAuto(eAuto autos[], int tamAutos, int id)
+/** \brief Busca un auto por id, pasado por parametro
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param id int
+ * \return int
+ *
+ */
+int auto_buscar(eAuto autos[], int tamAutos, int id)
+
 {
     int index=-1;
     for(int i=0; i<tamAutos; i++)
@@ -50,7 +71,14 @@ int buscarAuto(eAuto autos[], int tamAutos, int id)
     return index;
 }
 
-int inicializarAutos(eAuto autos[], int tam)
+/** \brief inicializa un vector de autos, de tamaño tam
+ *
+ * \param autos[] eAuto
+ * \param tam int
+ * \return int
+ *
+ */
+int auto_inicializar(eAuto autos[], int tam)
 {
     int error=1;
     if(autos != NULL && tam>0)
@@ -64,18 +92,31 @@ int inicializarAutos(eAuto autos[], int tam)
     return error;
 }
 
-int mostrarAutos(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamCl)
+/** \brief Imprime todos los autos de un vector
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param clientes[] eCliente
+ * \param tamClientes int
+ * \return int
+ *
+ */
+int auto_mostrarTodos(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes)
 {
     int error=1;
     int flag=0;
     if(autos != NULL && tamAutos>0)
     {
-        printf(" ID      Patente               Marca               Color     Modelo   Cliente\n\n");
+        printf(" ID       PATENTE               MARCA               COLOR     MODELO   CLIENTE\n\n");
         for(int i=0; i<tamAutos; i++)
         {
             if(autos[i].isEmpty == 1)
             {
-                mostrarAuto(autos[i], marcas, tamMarcas, colores, tamColores, clientes, tamCl);
+                auto_mostrarUno(autos[i], marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
                 flag=1;
             }
         }
@@ -91,32 +132,61 @@ int mostrarAutos(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eC
     return error;
 }
 
-void mostrarAuto(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamCl)
+/** \brief Imprime un auto
+ *
+ * \param unAuto eAuto
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param clientes[] eCliente
+ * \param tamClientes int
+ * \return void
+ *
+ */
+void auto_mostrarUno(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes)
 {
     char marca[20];
     char color[20];
     char cliente[20];
-    cargarMarca(marcas, tamMarcas, unAuto.idMarca, marca);
-    cargarColor(colores, tamColores, unAuto.idColor, color);
-    cargarCliente(clientes, tamCl, unAuto.idCliente, cliente);
+    marca_cargar(marcas, tamMarcas, unAuto.idMarca, marca);
+    color_cargar(colores, tamColores, unAuto.idColor, color);
+    cliente_cargar(clientes, tamClientes, unAuto.idCliente, cliente);
     printf("%4d     %7s     %15s     %15s     %4d     %s\n", unAuto.id, unAuto.patente, marca, color, unAuto.modelo, cliente);
 }
 
-int altaAuto(eAuto autos[], int tam, int idAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores)
+/** \brief Da de alta un auto en el vector, o devuelve un mensaje de error si esta completo
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param idAuto int
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param clientes[] eCliente
+ * \param tamClientes int
+ * \return int
+ *
+ */
+int auto_alta(eAuto autos[], int tamAutos, int idAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes)
 {
     int error=1, index;
     eAuto nuevoAuto;
-    char auxCad[20];
     char auxMarca[20];
     char auxColor[20];
+    char auxCliente[20];
+    int idMarca;
+    int idColor;
+    int idCliente;
     char confirma;
     int fEncontro=1;
 
-    if(autos != NULL && tam>0 && idAuto>0)
+    if(autos != NULL && tamAutos>0 && idAuto>0)
     {
         system("cls");
         printf("   **** Alta auto ****\n\n\n");
-        index = buscarLibre(autos, tam);
+        index = auto_buscarLibre(autos, tamAutos);
         if(index == -1)
         {
             printf("Sistema completo\n\n");
@@ -129,43 +199,42 @@ int altaAuto(eAuto autos[], int tam, int idAuto, eMarca marcas[], int tamMarcas,
 
             do
             {
-                getStrings("Ingrese patente (AAA000 o AA000AA): ", "Demasiado largo, intente de nuevo (AAA000 o AA000AA): ", 10, nuevoAuto.patente);
+                getStrings("Ingrese patente (AAA000 o AA0000AA): ", "Demasiado largo, intente de nuevo (AAA000 o AA0000AA): ", 8, nuevoAuto.patente);
             }
-            while (strlen(nuevoAuto.patente)<6 || strlen(nuevoAuto.patente)>7);
-            strupr(nuevoAuto.patente);
-
+            while (strlen(nuevoAuto.patente)<6 || strlen(nuevoAuto.patente)>8);
             do
             {
                 system("cls");
                 printf("PATENTE: %s\n\n", nuevoAuto.patente);
-                mostrarMarcas(marcas, tamMarcas);
-                getStrings("Ingrese marca: ", "Demasiado largo, intente de nuevo: ", 20, auxCad);
+                marca_mostrarTodas(marcas, tamMarcas);
+                idMarca= getInt("Ingrese el ID de la marca: ", "Valor invalido, intente de nuevo: ", 1000, 1999);
                 for(int i=0; i<tamMarcas; i++)
                 {
-                    if(stricmp(auxCad, marcas[i].descripcion)==0)
+                    if(marcas[i].id==idMarca)
                     {
-                        nuevoAuto.idMarca=  marcas[i].id;
+                        nuevoAuto.idMarca= marcas[i].id;
                         fEncontro=0;
-                        cargarMarca(marcas, tamMarcas, marcas[i].id, auxMarca);
+                        marca_cargar(marcas, tamMarcas, marcas[i].id, auxMarca);
                         break;
                     }
                 }
             }
             while(fEncontro==1);
             fEncontro=1;
+
             do
             {
                 system("cls");
                 printf("PATENTE: %s\nMARCA: %s\n\n", nuevoAuto.patente, auxMarca);
-                mostrarColores(colores, tamColores);
-                getStrings("Ingrese color: ", "Demasiado largo, intente de nuevo: ", 20, auxCad);
+                color_mostrarTodos(colores, tamColores);
+                idColor= getInt("Ingrese el ID del color: ", "Valor invalido, intente de nuevo: ", 5000, 5999);
                 for(int i=0; i<tamColores; i++)
                 {
-                    if(stricmp(auxCad, colores[i].nombreColor)==0)
+                    if(colores[i].id==idColor)
                     {
-                        nuevoAuto.idColor=  colores[i].id;
+                        nuevoAuto.idColor= colores[i].id;
                         fEncontro=0;
-                        cargarColor(colores, tamColores, colores[i].id, auxColor);
+                        color_cargar(colores, tamColores, colores[i].id, auxColor);
                         break;
                     }
                 }
@@ -176,7 +245,27 @@ int altaAuto(eAuto autos[], int tam, int idAuto, eMarca marcas[], int tamMarcas,
             printf("PATENTE: %s\nMARCA: %s\nCOLOR: %s\n\n", nuevoAuto.patente, auxMarca, auxColor);
             nuevoAuto.modelo = getInt("Ingrese el modelo del auto (de 1900 a 2020): ", "Anio invalido, intente de nuevo: ", 1900, 2020);
             system("cls");
-            printf("PATENTE: %s\nMARCA: %s\nCOLOR: %s\nMODELO: %d\n\n", nuevoAuto.patente, auxMarca, auxColor, nuevoAuto.modelo);
+
+            do
+            {
+                system("cls");
+                printf("PATENTE: %s\nMARCA: %s\nCOLOR: %s\nMODELO: %d\n\n", nuevoAuto.patente, auxMarca, auxColor, nuevoAuto.modelo);
+                cliente_mostrarTodos(clientes, tamClientes);
+                idCliente= getInt("Ingrese el ID del cliente: ", "Valor invalido, intente de nuevo: ", 6000, 6999);
+                for(int i=0; i<tamClientes; i++)
+                {
+                    if(clientes[i].id==idCliente && clientes[i].isEmpty==1)
+                    {
+                        nuevoAuto.idCliente= clientes[i].id;
+                        fEncontro=0;
+                        cliente_cargar(clientes, tamClientes, clientes[i].id, auxCliente);
+                        break;
+                    }
+                }
+            }
+            while(fEncontro==1);
+            system("cls");
+            printf("PATENTE: %s\nMARCA: %s\nCOLOR: %s\nMODELO: %d\nCLIENTE: %s\n\n", nuevoAuto.patente, auxMarca, auxColor, nuevoAuto.modelo, auxCliente);
             confirma=getLetter("Confirma alta?: ", "Caracter invalido, intente de nuevo: ");
             if(confirma=='s')
             {
@@ -193,7 +282,20 @@ int altaAuto(eAuto autos[], int tam, int idAuto, eMarca marcas[], int tamMarcas,
     return error;
 }
 
-int bajaAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamCl)
+/** \brief Da de baja un auto del vector de autos
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param clientes[] eCliente
+ * \param tamClientes int
+ * \return int
+ *
+ */
+int auto_baja(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes)
 {
     int error=1;
     int index;
@@ -204,10 +306,10 @@ int bajaAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor
     {
         system("cls");
         printf("   **** Baja de auto ****\n\n\n");
-        mostrarAutos(autos, tamAutos, marcas, tamMarcas, colores, tamColores, clientes, tamCl);
+        auto_mostrarTodos(autos, tamAutos, marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
         id = getInt("Ingrese ID del auto a eliminar: ", "ID invalido, intente de nuevo: ", 3000, 4000);
 
-        index= buscarAuto(autos, tamAutos, id);
+        index= auto_buscar(autos, tamAutos, id);
 
         if(index == -1)
         {
@@ -215,7 +317,7 @@ int bajaAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor
         }
         else
         {
-            mostrarAuto(autos[index], marcas, tamMarcas, colores, tamColores, clientes, tamCl);
+            auto_mostrarUno(autos[index], marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
             confirma = getLetter("Confirma baja? ", "Caracter invalido, intente de nuevo: ");
             if(confirma == 's')
             {
@@ -231,30 +333,41 @@ int bajaAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor
     return error;
 }
 
-int modificarAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamCl)
+/** \brief Entra al menu de modificaciones si logra encontrar el auto con el id ingresado
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param clientes[] eCliente
+ * \param tamClientes int
+ * \return int
+ *
+ */
+int auto_modificar(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes)
 {
-    int error=1;
-    char auxCad[20];
+    int error=1, auxIDAuto;
     char confirma;
 
     if(autos != NULL && tamAutos>0 && marcas != NULL && tamMarcas>0 && colores != NULL && tamColores>0)
     {
         system("cls");
         printf("***            **** Modificar auto ****            ***\n\n\n");
-        mostrarAutos(autos, tamAutos, marcas, tamMarcas, colores, tamColores, clientes, tamCl);
-        getStrings("Ingrese patente de auto a modificar: ", "Patente invalida, intente de nuevo: ", 20, auxCad);
-        strupr(auxCad);
+        auto_mostrarTodos(autos, tamAutos, marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
+        auxIDAuto= getInt("Ingrese ID de auto a modificar: ", "ID invalido, intente de nuevo: ", 3000, 3999);
         for(int i=0; i<tamAutos; i++)
         {
-            if(strcmp(auxCad, autos[i].patente)==0 && autos[i].isEmpty!=LIBRE)
+            if(autos[i].id==auxIDAuto && autos[i].isEmpty!=LIBRE)
             {
                 printf("\n");
-                mostrarAuto(autos[i], marcas, tamMarcas, colores, tamColores, clientes, tamCl);
+                auto_mostrarUno(autos[i], marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
                 printf("\n");
                 confirma = getLetter("Confirma modificacion? ", "Caracter invalido, intente de nuevo: ");
                 if(confirma == 's')
                 {
-                    autos[i] = modificaciones(autos[i], marcas, tamMarcas, colores, tamColores, clientes, tamCl);
+                    autos[i] = auto_modificaciones(autos[i], marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
                     error=0;
                 }
                 else
@@ -267,12 +380,24 @@ int modificarAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, e
     return error;
 }
 
-eAuto modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamCl)
+/** \brief Menu de modificaciones, permite modificar un auto y guardar o no los cambios
+ *
+ * \param unAuto eAuto
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param clientes[] eCliente
+ * \param tamClientes int
+ * \return eAuto
+ *
+ */
+eAuto auto_modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes)
 {
     eAuto auxAuto= unAuto;
     char opcion;
     char confirma='n';
-    char auxCad[20];
+    int auxIDColor;
     int auxModelo;
 
     if(marcas != NULL && tamMarcas>0 && colores != NULL && tamColores>0)
@@ -281,7 +406,7 @@ eAuto modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colore
         {
             system("cls");
             printf("          ***   Modificaciones de auto   ***\n\n\n");
-            mostrarAuto(unAuto, marcas, tamMarcas, colores, tamColores, clientes, tamCl);
+            auto_mostrarUno(unAuto, marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
             printf("\n");
             printf("a Modificar color\n");
             printf("b Modificar Modelo\n");
@@ -290,12 +415,12 @@ eAuto modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colore
             switch(opcion)
             {
             case 'a':
-                if(!mostrarColores(colores, tamColores))
+                if(!color_mostrarTodos(colores, tamColores))
                 {
-                    getStrings("Ingrese nuevo color: ", "Color invalido, intente de nuevo: ", 20, auxCad);
+                    auxIDColor= getInt("Ingrese ID de nuevo color: ", "Color invalido, intente de nuevo: ", 5000, 5999);
                     for(int i=0; i<tamColores; i++)
                     {
-                        if(stricmp(auxCad, colores[i].nombreColor)==0)
+                        if(colores[i].id==auxIDColor)
                         {
                             printf("Color nuevo: %s\n", colores[i].nombreColor);
                             confirma= getLetter("Confirma cambio de color?: ", "Caracter invalido, intente de nuevo: ");
@@ -343,7 +468,18 @@ eAuto modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colore
     return unAuto;
 }
 
-int ordenarAutosXMarcaYPatente(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores)
+/** \brief Ordena los autos por marca y patente
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \return int
+ *
+ */
+int auto_ordenarXMarcaYPatente(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores)
 {
     int error=1;
     char descripcionI[20], descripcionJ[20];
@@ -355,12 +491,12 @@ int ordenarAutosXMarcaYPatente(eAuto autos[], int tamAutos, eMarca marcas[], int
         {
             if(autos[i].isEmpty != LIBRE)
             {
-                cargarMarca(marcas, tamMarcas, autos[i].idMarca, descripcionI);
+                marca_cargar(marcas, tamMarcas, autos[i].idMarca, descripcionI);
                 for(int j=i+1; j<tamAutos; j++)
                 {
                     if(autos[j].isEmpty != LIBRE)
                     {
-                        cargarMarca(marcas, tamMarcas, autos[j].idMarca, descripcionJ);
+                        marca_cargar(marcas, tamMarcas, autos[j].idMarca, descripcionJ);
                         if(stricmp(descripcionI, descripcionJ)>0 || (stricmp(descripcionI, descripcionJ)==0 && stricmp(autos[i].patente, autos[j].patente)>0))
                         {
                             auxAuto=autos[i];
@@ -376,3 +512,24 @@ int ordenarAutosXMarcaYPatente(eAuto autos[], int tamAutos, eMarca marcas[], int
     return error;
 }
 
+/** \brief Devuelve 1 si hay algun auto cargado en el vector de autos
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \return int
+ *
+ */
+int auto_hayCargado(eAuto autos[], int tamAutos)
+{
+    int ok=0;
+
+    for(int i=0; i<tamAutos; i++)
+    {
+        if(autos[i].isEmpty!=LIBRE)
+        {
+            ok=1;
+            break;
+        }
+    }
+    return ok;
+}

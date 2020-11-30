@@ -13,10 +13,10 @@ typedef struct
     char nombreColor[20];
 }eColor;
 
-int cargarColor(eColor colores[], int tamColores, int id, char descripcion[]);
+int color_cargar(eColor colores[], int tamColores, int id, char descripcion[]);
 
-int mostrarColores(eColor colores[], int tamColores);
+int color_mostrarTodos(eColor colores[], int tamColores);
 
-void mostrarColor(eColor unColor);
+void color_mostrarUno(eColor unColor);
 
 #endif // COLOR_H_INCLUDED

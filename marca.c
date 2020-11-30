@@ -2,7 +2,16 @@
 
 
 
-int cargarMarca(eMarca marcas[], int tamMarcas, int id, char descripcion[])
+/** \brief Carga en una cadena pasada por parametro la descripcion de la marca que coincide con el id pasado por parametro
+ *
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param id int
+ * \param descripcion[] char
+ * \return int
+ *
+ */
+int marca_cargar(eMarca marcas[], int tamMarcas, int id, char descripcion[])
 {
     int error=1;
     if(marcas != NULL && tamMarcas>0 && id>0)
@@ -19,7 +28,14 @@ int cargarMarca(eMarca marcas[], int tamMarcas, int id, char descripcion[])
     return error;
 }
 
-int mostrarMarcas(eMarca marcas[], int tamMarcas)
+/** \brief Imprime todas las marcas
+ *
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \return int
+ *
+ */
+int marca_mostrarTodas(eMarca marcas[], int tamMarcas)
 {
     int error=1;
     int flag=0;
@@ -28,7 +44,7 @@ int mostrarMarcas(eMarca marcas[], int tamMarcas)
         printf("ID                     NOMBRE\n\n");
         for(int i=0; i<tamMarcas; i++)
         {
-            mostrarMarca(marcas[i]);
+            marca_mostrarUna(marcas[i]);
             flag=1;
         }
         printf("\n\n");
@@ -41,7 +57,13 @@ int mostrarMarcas(eMarca marcas[], int tamMarcas)
     return error;
 }
 
-void mostrarMarca(eMarca unaMarca)
+/** \brief Imprime una marca
+ *
+ * \param unaMarca eMarca
+ * \return void
+ *
+ */
+void marca_mostrarUna(eMarca unaMarca)
 {
     printf("%4d     %20s\n", unaMarca.id, unaMarca.descripcion);
 }

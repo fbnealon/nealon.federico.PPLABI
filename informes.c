@@ -1,20 +1,25 @@
 #include "informes.h"
 
+/** \brief Menu de informes
+ *
+ * \return char
+ *
+ */
 char menuInformes()
 {
     char opcion;
     system("cls");
 
     printf("---------     *** Informes ***      ---------\n\n");
-    printf("a Informar autos de un color\n");
-    printf("b Informar autos de una marca\n");
-    printf("c Informar auto mas antiguo\n");
-    printf("d Informar autos por marca\n");
-    printf("e Informar cantidad de autos de un color y marca\n");
-    printf("f Informar marca mas elegida\n");
-    printf("g Informar trabajos realizados a un auto\n");
-    printf("h Informar importes cobrados a un auto\n");
-    printf("i Informar autos y fechas en las que se realizo un servicio\n");
+    printf("a Informar autos del color a seleccionar\n");
+    printf("b Informar autos de marca a seleccionar\n");
+    printf("c Informar autos mas antiguos\n");
+    printf("d Informar autos separados por marca\n");
+    printf("e Informar cantidad de autos de un color y marca a seleccionar\n");
+    printf("f Informar marcas mas elegidas\n");
+    printf("g Informar trabajos realizados a un auto a seleccionar\n");
+    printf("h Informar importes cobrados a un auto a seleccionar\n");
+    printf("i Informar autos y fechas en las que se realizo un servicio a seleccionar\n");
     printf("j Informar servicios realizados en una fecha\n");
 
     printf("z Salir\n\n");
@@ -23,7 +28,25 @@ char menuInformes()
     return opcion;
 }
 
-int informar(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, eServicio servicios[], int tamS, eTrabajo trabajos[], int tamT, eCliente clientes[], int tamCl)
+/** \brief Seleccion de opcion de menu de informes
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param servicios[] eServicio
+ * \param tamServicios int
+ * \param trabajos[] eTrabajo
+ * \param tamTrabajos int
+ * \param clientes[] eCliente
+ * \param tamClientes int
+ * \param masElegidas[] eMasElegidas
+ * \return int
+ *
+ */
+int informar(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eServicio servicios[], int tamServicios, eTrabajo trabajos[], int tamTrabajos, eCliente clientes[], int tamClientes, eMasElegidas masElegidas[])
 {
     system("cls");
     int idColor;
@@ -41,85 +64,85 @@ int informar(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[
         {
         case 'a':
             system("cls");
-            mostrarColores(colores, tamC);
+            color_mostrarTodos(colores, tamColores);
             idColor=getInt("Ingrese ID de color a listar: ", "Valor invalido, intente de nuevo: ", 5000, 6000);
             system("cls");
             printf("      *** Informe de autos de un color ***\n\n");
-            mostrarAutosDeColor(autos, tamA, marcas, tamM, colores, tamC, idColor, clientes, tamCl);
+            informe_autosDeColor(autos, tamAutos, marcas, tamMarcas, colores, tamColores, idColor, clientes, tamClientes);
             break;
         case 'b':
             system("cls");
-            mostrarMarcas(marcas, tamM);
+            marca_mostrarTodas(marcas, tamMarcas);
             idMarca=getInt("Ingrese ID de marca a listar: ", "Valor invalido, intente de nuevo: ", 1000, 2000);
             system("cls");
             printf("      *** Informe de autos de una marca ***\n\n");
-            mostrarAutosDeMarca(autos, tamA, marcas, tamM, colores, tamC, idMarca, clientes, tamCl);
+            informe_autosDeMarca(autos, tamAutos, marcas, tamMarcas, colores, tamColores, idMarca, clientes, tamClientes);
             break;
         case 'c':
             system("cls");
             printf("      *** Informe de autos mas antiguos ***\n\n");
-            mostrarMasAntiguo(autos, tamA, marcas, tamM, colores, tamC, clientes, tamCl);
+            informe_autoMasAntiguo(autos, tamAutos, marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
             break;
         case 'd':
             system("cls");
             printf("      *** Informe de autos por marca ***\n\n");
-            mostrarXMarca(autos, tamA, marcas, tamM, colores, tamC, clientes, tamCl);
+            informe_autosXMarca(autos, tamAutos, marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
             break;
         case 'e':
             system("cls");
-            mostrarColores(colores, tamC);
+            color_mostrarTodos(colores, tamColores);
             idColor=getInt("Ingrese ID de color: ", "Valor invalido, intente de nuevo: ", 5000, 6000);
             system("cls");
-            mostrarMarcas(marcas, tamM);
+            marca_mostrarTodas(marcas, tamMarcas);
             idMarca=getInt("Ingrese ID de marca: ", "Valor invalido, intente de nuevo: ", 1000, 2000);
             system("cls");
             printf("      *** Informe de cantidad de autos de color y marca ***\n\n");
-            contarXColorYMarca(autos, tamA, marcas, tamM, colores, tamC, idColor, idMarca);
+            informe_cantidadXColorYMarca(autos, tamAutos, marcas, tamMarcas, colores, tamColores, idColor, idMarca);
             break;
         case 'f':
             system("cls");
-            marcasMasElegidas(autos, tamA, marcas, tamM, colores, tamC);
+            informe_marcasMasElegidas(masElegidas, marcas, tamMarcas, autos, tamAutos);
             break;
         case 'g':
             system("cls");
-            mostrarAutos(autos, tamA, marcas, tamM, colores, tamC, clientes, tamCl);
+            auto_mostrarTodos(autos, tamAutos, marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
             getStrings("Ingrese patente del auto: ", "Demasiado largo, intente de nuevo: ", 10, patente);
             system("cls");
             printf("      *** Informe de servicios por patente de auto ***\n\n");
-            if(mostrarTrabajosXAuto(trabajos, tamT, servicios, tamS, patente))
+            if(informe_trabajosXAuto(trabajos, tamTrabajos, servicios, tamServicios, patente))
             {
                 printf("No hay servicios asignados al auto de patente %s\n\n", strupr(patente));
             }
             break;
         case 'h':
             system("cls");
-            mostrarAutos(autos, tamA, marcas, tamM, colores, tamC, clientes, tamCl);
+            auto_mostrarTodos(autos, tamAutos, marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
             getStrings("Ingrese patente del auto: ", "Demasiado largo, intente de nuevo: ", 10, patente);
             system("cls");
             printf("      *** Informe de importes auto ***\n\n");
-            if(mostrarImportesXAuto(trabajos, tamT, servicios, tamS, patente))
+            if(informe_importesXAuto(trabajos, tamTrabajos, servicios, tamServicios, patente))
             {
                 printf("No hay servicios asignados al auto seleccionado\n\n");
             }
             break;
         case 'i':
             system("cls");
-            mostrarServicios(servicios, tamS);
-            idServicio=getInt("Ingrese ID del servicio: ", "Intente de nuevo: ", 2000, 3000);
+            servicio_mostrarTodos(servicios, tamServicios);
+            idServicio=getInt("Ingrese ID del servicio: ", "Intente de nuevo: ", 20000, 29999);
             system("cls");
             printf("      *** Informe de autos y fecha de servicio ***\n\n");
-            if(mostrarAutosXServicio(trabajos, tamT, idServicio))
+            if(informe_autosXServicio(trabajos, tamTrabajos, idServicio, autos, tamAutos, marcas, tamMarcas, colores, tamColores, clientes, tamClientes, servicios, tamServicios))
             {
                 printf("No hay servicios realizados del tipo elegido\n\n");
             }
             break;
         case 'j':
             system("cls");
-            mostrarTrabajos(trabajos, tamT, servicios, tamS);
-            fecha=solicitarFecha(fecha);
+            trabajo_mostrarTodos(trabajos, tamTrabajos, servicios, tamServicios);
+            fecha=fecha_solicitar(fecha);
             system("cls");
             printf("      *** Informe de servicios por fecha ***\n\n");
-            if(mostrarServiciosXFecha(trabajos, tamT, servicios, tamS, fecha))
+            if(informe_serviciosXFecha(trabajos, tamTrabajos, servicios, tamServicios, fecha))
             {
                 printf("No hay servicios realizados en la fecha seleccionada\n\n");
             }
@@ -142,18 +165,32 @@ int informar(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[
     return 0;
 }
 
-int mostrarAutosDeColor(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, int idColor, eCliente clientes[], int tamCl)
+/** \brief Informa los autos del color pasado por parametro
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param idColor int
+ * \param clientes[] eCliente
+ * \param tamClientes int
+ * \return int
+ *
+ */
+int informe_autosDeColor(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, int idColor, eCliente clientes[], int tamClientes)
 {
     int error=1;
     int flag=0;
-    if(autos != NULL && tamA>0 && marcas != NULL && tamM>0 && colores != NULL && tamC>0)
+    if(autos != NULL && tamAutos>0 && marcas != NULL && tamMarcas>0 && colores != NULL && tamColores>0)
     {
         printf(" ID      Patente               Marca               Color     Modelo   Cliente\n\n");
-        for(int i=0; i<tamA; i++)
+        for(int i=0; i<tamAutos; i++)
         {
             if(autos[i].isEmpty != LIBRE && autos[i].idColor==idColor)
             {
-                mostrarAuto(autos[i], marcas, tamM, colores, tamC, clientes, tamCl);
+                auto_mostrarUno(autos[i], marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
                 flag=1;
             }
         }
@@ -167,18 +204,32 @@ int mostrarAutosDeColor(eAuto autos[], int tamA, eMarca marcas[], int tamM, eCol
     return error;
 }
 
-int mostrarAutosDeMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, int idMarca, eCliente clientes[], int tamCl)
+/** \brief Informa los autos de la marca pasada por parametro
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param idMarca int
+ * \param clientes[] eCliente
+ * \param tamClientes int
+ * \return int
+ *
+ */
+int informe_autosDeMarca(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, int idMarca, eCliente clientes[], int tamClientes)
 {
     int error=1;
     int flag=0;
-    if(autos != NULL && tamA>0 && marcas != NULL && tamM>0 && colores != NULL && tamC>0)
+    if(autos != NULL && tamAutos>0 && marcas != NULL && tamMarcas>0 && colores != NULL && tamColores>0)
     {
         printf(" ID      Patente               Marca               Color     Modelo   Cliente\n\n");
-        for(int i=0; i<tamA; i++)
+        for(int i=0; i<tamAutos; i++)
         {
             if(autos[i].isEmpty != LIBRE && autos[i].idMarca==idMarca)
             {
-                mostrarAuto(autos[i], marcas, tamM, colores, tamC, clientes, tamCl);
+                auto_mostrarUno(autos[i], marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
                 flag=1;
                 error=0;
             }
@@ -194,15 +245,28 @@ int mostrarAutosDeMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eCol
     return error;
 }
 
-int mostrarMasAntiguo(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, eCliente clientes[], int tamCl)
+/** \brief Informa el o los autos mas antiguos que se encuentran cargados
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param clientes[] eCliente
+ * \param tamClientes int
+ * \return int
+ *
+ */
+int informe_autoMasAntiguo(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes)
 {
     int error=1;
     int esPrimera=1;
     eAuto masAntiguo;
-    if(autos != NULL && tamA>0 && marcas != NULL && tamM>0 && colores != NULL && tamC>0)
+    if(autos != NULL && tamAutos>0 && marcas != NULL && tamMarcas>0 && colores != NULL && tamColores>0)
     {
-        printf(" ID      Patente               Marca               Color     Modelo   Cliente\n\n");
-        for(int i=0; i<tamA; i++)
+        printf(" ID       PATENTE               MARCA               COLOR     MODELO     CLIENTE\n\n");
+        for(int i=0; i<tamAutos; i++)
         {
             if(esPrimera && autos[i].isEmpty != LIBRE)
             {
@@ -215,31 +279,44 @@ int mostrarMasAntiguo(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor
             }
             if(autos[i].isEmpty != LIBRE && autos[i].modelo == masAntiguo.modelo && autos[i].id!=masAntiguo.id)
             {
-                mostrarAuto(masAntiguo, marcas, tamM, colores, tamC, clientes, tamCl);
+                auto_mostrarUno(masAntiguo, marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
                 masAntiguo=autos[i];
             }
         }
-        mostrarAuto(masAntiguo, marcas, tamM, colores, tamC, clientes, tamCl);
+        auto_mostrarUno(masAntiguo, marcas, tamMarcas, colores, tamColores, clientes, tamClientes);
         printf("\n\n");
         error=0;
     }
     return error;
 }
 
-int mostrarXMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, eCliente clientes[], int tamCl)
+/** \brief Informa los autos separados por marca
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param clientes[] eCliente
+ * \param tamClientes int
+ * \return int
+ *
+ */
+int informe_autosXMarca(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes)
 {
     int error=1;
     int mostro=0;
-    if(autos != NULL && tamA>0 && marcas != NULL && tamM>0 && colores != NULL && tamC>0)
+    if(autos != NULL && tamAutos>0 && marcas != NULL && tamMarcas>0 && colores != NULL && tamColores>0)
     {
-        for(int i=0; i<tamM; i++)
+        for(int i=0; i<tamMarcas; i++)
         {
             printf("MARCA: %s\n", marcas[i].descripcion);
-            for(int j=0; j<tamA; j++)
+            for(int j=0; j<tamAutos; j++)
             {
                 if(autos[j].isEmpty != LIBRE && autos[j].idMarca== marcas[i].id && mostro==0)
                 {
-                    mostrarAutosDeMarca(autos, tamA, marcas, tamM, colores, tamC, marcas[i].id, clientes, tamCl);
+                    informe_autosDeMarca(autos, tamAutos, marcas, tamMarcas, colores, tamColores, marcas[i].id, clientes, tamClientes);
                     mostro=1;
                 }
             }
@@ -254,17 +331,30 @@ int mostrarXMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor col
     return error;
 }
 
-int contarXColorYMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, int idColor, int idMarca)
+/** \brief Informa la cantidad de autos de una marca y color cuyos ids son pasados por parametro
+ *
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param idColor int
+ * \param idMarca int
+ * \return int
+ *
+ */
+int informe_cantidadXColorYMarca(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, int idColor, int idMarca)
 {
     int error=1;
     int cantidad=0;
     char color[20];
     char marca[20];
-    if(autos != NULL && tamA>0 && marcas != NULL && tamM>0 && colores != NULL && tamC>0)
+    if(autos != NULL && tamAutos>0 && marcas != NULL && tamMarcas>0 && colores != NULL && tamColores>0)
     {
-        if(!cargarColor(colores, tamC, idColor, color) && !cargarMarca(marcas, tamM, idMarca, marca))
+        if(!color_cargar(colores, tamColores, idColor, color) && !marca_cargar(marcas, tamMarcas, idMarca, marca))
         {
-            for(int i=0; i<tamA; i++)
+            for(int i=0; i<tamAutos; i++)
             {
                 if(autos[i].idColor==idColor && autos[i].idMarca==idMarca)
                 {
@@ -290,49 +380,128 @@ int contarXColorYMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColo
     return error;
 }
 
-int marcasMasElegidas(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC)
+/** \brief Inicializa el vector de masElegidas
+ *
+ * \param masElegidas[] eMasElegidas
+ * \param marcas[] eMarca
+ * \param tamMarcasarcas int
+ * \return int
+ *
+ */
+int informe_inicializarMasElegidas(eMasElegidas masElegidas[], eMarca marcas[], int tamMarcasarcas)
 {
     int error=1;
-    int cantidad=0;
-    int mayor=0;
-    char marca[20];
-    if(autos != NULL && tamA>0 && marcas != NULL && tamM>0 && colores != NULL && tamC>0)
+    if(masElegidas!=NULL && marcas!=NULL && tamMarcasarcas>0)
     {
-        for(int i=0; i<tamA;i++)
+        for(int i=0; i<tamMarcasarcas; i++)
         {
-            if(autos[i].isEmpty != LIBRE)
-            {
-                for(int j=0; j<tamA; j++)
-                {
-                    if(autos[j].isEmpty != LIBRE && autos[j].idMarca==autos[i].idMarca)
-                    {
-                        cantidad++;
-                    }
-                }
-                if(mayor<cantidad)
-                {
-                    cargarMarca(marcas, tamM, autos[i].idMarca, marca);
-                    mayor=cantidad;
-                }
-            }
-            cantidad=0;
+            masElegidas[i].idMarca=marcas[i].id;
+            masElegidas[i].cantidad=0;
         }
-        printf("La marca mas elegida es %s\n\n", marca);
         error=0;
     }
     return error;
 }
 
-int mostrarTrabajosXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS, char patente[])
+/** \brief Inicializa el vector de masElegidas y carga las cantidades
+ *
+ * \param masElegidas[] eMasElegidas
+ * \param marcas[] eMarca
+ * \param tamMarcasarcas int
+ * \param autos[] eAuto
+ * \param tamAutosutos int
+ * \return int
+ *
+ */
+int informe_cargarMasElegidas(eMasElegidas masElegidas[], eMarca marcas[], int tamMarcasarcas, eAuto autos[], int tamAutosutos)
 {
     int error=1;
-    if(trabajos != NULL && tamT>0 && servicios != NULL && tamS>0)
+    if(masElegidas!=NULL && autos!=NULL && marcas!=NULL && tamAutosutos>0 && tamMarcasarcas>0)
     {
-        for(int i=0; i<tamT; i++)
+        if(!informe_inicializarMasElegidas(masElegidas, marcas, tamMarcasarcas))
+        {
+            for(int i=0; i<tamAutosutos; i++)
+            {
+                if(autos[i].isEmpty!=LIBRE)
+                {
+                    for(int j=0; j<tamMarcasarcas; j++)
+                    {
+                        if(autos[i].idMarca==masElegidas[j].idMarca)
+                        {
+                            masElegidas[j].cantidad++;
+                        }
+                    }
+                }
+            }
+        }
+        error=0;
+    }
+    return error;
+}
+
+
+/** \brief Informa las marcas de autos mas elegidas
+ *
+ * \param masElegidas[] eMasElegidas
+ * \param marcas[] eMarca
+ * \param tamMarcasarcas int
+ * \param autos[] eAuto
+ * \param tamAutosutos int
+ * \return int
+ *
+ */
+int informe_marcasMasElegidas(eMasElegidas masElegidas[], eMarca marcas[], int tamMarcasarcas, eAuto autos[], int tamAutosutos)
+{
+    int error=1, auxMayor=0;
+    if(masElegidas!=NULL && marcas!=NULL && autos!=NULL && tamMarcasarcas>0 && tamAutosutos>0)
+    {
+        printf("Las marcas mas elegidas son: \n\n");
+        for(int i=0; i<tamMarcasarcas; i++)
+        {
+            if(auxMayor<masElegidas[i].cantidad)
+            {
+                auxMayor=masElegidas[i].cantidad;
+            }
+        }
+        for(int j=0; j<tamMarcasarcas; j++)
+        {
+            if(auxMayor==masElegidas[j].cantidad)
+            {
+                for(int k=0; k<tamMarcasarcas; k++)
+                {
+                    if(masElegidas[j].idMarca==marcas[k].id)
+                    {
+                        marca_mostrarUna(marcas[k]);
+                    }
+                }
+            }
+        }
+        printf("\n\n");
+        error=0;
+    }
+    return error;
+}
+
+/** \brief Informa los trabajos realizados al auto cuya patente se pasa por parametro
+ *
+ * \param trabajos[] eTrabajo
+ * \param tamTrabajos int
+ * \param servicios[] eServicio
+ * \param tamServicios int
+ * \param patente[] char
+ * \return int
+ *
+ */
+int informe_trabajosXAuto(eTrabajo trabajos[], int tamTrabajos, eServicio servicios[], int tamServicios, char patente[])
+{
+    int error=1;
+    if(trabajos != NULL && tamTrabajos>0 && servicios != NULL && tamServicios>0)
+    {
+        for(int i=0; i<tamTrabajos; i++)
         {
             if(stricmp(patente, trabajos[i].patente)==0 && trabajos[i].isEmpty!=0)
             {
-                mostrarTrabajo(trabajos[i], servicios, tamS);
+                trabajo_mostrarUno(trabajos[i], servicios, tamServicios);
                 error=0;
             }
         }
@@ -340,17 +509,27 @@ int mostrarTrabajosXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], i
     return error;
 }
 
-int mostrarImportesXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS, char patente[])
+/** \brief Informa el total de cargos por auto cuya patente se pasa por parametro
+ *
+ * \param trabajos[] eTrabajo
+ * \param tamTrabajos int
+ * \param servicios[] eServicio
+ * \param tamServicios int
+ * \param patente[] char
+ * \return int
+ *
+ */
+int informe_importesXAuto(eTrabajo trabajos[], int tamTrabajos, eServicio servicios[], int tamServicios, char patente[])
 {
     int error=1;
     int total=0;
-    if(trabajos != NULL && tamT>0 && servicios != NULL && tamS>0)
+    if(trabajos != NULL && tamTrabajos>0 && servicios != NULL && tamServicios>0)
     {
-        for(int i=0; i<tamT; i++)
+        for(int i=0; i<tamTrabajos; i++)
         {
             if(stricmp(patente, trabajos[i].patente)==0 && trabajos[i].isEmpty!=0)
             {
-                for(int j=0; j<tamS; j++)
+                for(int j=0; j<tamServicios; j++)
                 {
                     if(trabajos[i].idServicio==servicios[j].id)
                     {
@@ -368,17 +547,48 @@ int mostrarImportesXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], i
     return error;
 }
 
-int mostrarAutosXServicio(eTrabajo trabajos[], int tamT, int idServicio)
+/** \brief Informa los autos y las fechas en los que se realizo el servicio ingresado por parametro
+ *
+ * \param trabajos[] eTrabajo
+ * \param tamTrabajos int
+ * \param idServicio int
+ * \param autos[] eAuto
+ * \param tamAutos int
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param colores[] eColor
+ * \param tamColores int
+ * \param clientes[] eCliente
+ * \param tamClientes int
+ * \param servicios[] eServicio
+ * \param tamServicios int
+ * \return int
+ *
+ */
+int informe_autosXServicio(eTrabajo trabajos[], int tamTrabajos, int idServicio, eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes, eServicio servicios[], int tamServicios)
 {
     int error=1;
-    if(trabajos != NULL && tamT>0)
+    char auxMarca[20];
+    char auxColor[20];
+    char auxCliente[20];
+    char auxServicio[20];
+    if(trabajos!=NULL && autos!=NULL && marcas!=NULL && colores!=NULL && clientes!=NULL && servicios!=NULL && tamTrabajos>0 && tamAutos>0 && tamMarcas>0 && tamColores>0 && tamClientes>0 && tamServicios>0)
     {
-        printf("PATENTE            FECHA\n\n");
-        for(int i=0; i<tamT; i++)
+        for(int i=0; i<tamTrabajos; i++)
         {
             if(idServicio==trabajos[i].idServicio && trabajos[i].isEmpty!=LIBRE)
             {
-                printf("%s           %d/%d/%d\n", trabajos[i].patente, trabajos[i].fecha.dia, trabajos[i].fecha.mes, trabajos[i].fecha.anio);
+                for(int j=0; j<tamAutos; j++)
+                {
+                    if(stricmp(trabajos[i].patente, autos[j].patente)==0)
+                    {
+                        marca_cargar(marcas, tamMarcas, autos[j].idMarca, auxMarca);
+                        color_cargar(colores, tamColores, autos[j].idColor, auxColor);
+                        cliente_cargar(clientes, tamClientes, autos[j].idCliente, auxCliente);
+                        servicio_cargar(servicios, tamServicios, trabajos[i].idServicio, auxServicio);
+                        printf("SERVICIO: %s\nPATENTE: %s\nMARCA: %s COLOR: %s MODELO: %d\nCLIENTE: %s\nFECHA: %d/%d/%d\n\n", auxServicio, autos[j].patente, auxMarca, auxColor, autos[j].modelo, auxCliente, trabajos[i].fecha.dia, trabajos[i].fecha.mes, trabajos[i].fecha.anio);
+                    }
+                }
                 error=0;
             }
         }
@@ -386,18 +596,28 @@ int mostrarAutosXServicio(eTrabajo trabajos[], int tamT, int idServicio)
     return error;
 }
 
-int mostrarServiciosXFecha(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS, eFecha fecha)
+/** \brief Informa los servicios realizados en la fecha pasada por parametro
+ *
+ * \param trabajos[] eTrabajo
+ * \param tamTrabajos int
+ * \param servicios[] eServicio
+ * \param tamServicios int
+ * \param fecha eFecha
+ * \return int
+ *
+ */
+int informe_serviciosXFecha(eTrabajo trabajos[], int tamTrabajos, eServicio servicios[], int tamServicios, eFecha fecha)
 {
     int error=1;
     char servicio[20];
-    if(trabajos != NULL && tamT>0)
+    if(trabajos != NULL && tamTrabajos>0)
     {
         printf("SERVICIO            FECHA\n\n");
-        for(int i=0; i<tamT; i++)
+        for(int i=0; i<tamTrabajos; i++)
         {
             if(fecha.dia==trabajos[i].fecha.dia && fecha.mes==trabajos[i].fecha.mes && fecha.anio==trabajos[i].fecha.anio && trabajos[i].isEmpty!=LIBRE)
             {
-                cargarServicio(servicios, tamS, trabajos[i].idServicio, servicio);
+                servicio_cargar(servicios, tamServicios, trabajos[i].idServicio, servicio);
                 printf("%s           %d/%d/%d\n", servicio, trabajos[i].fecha.dia, trabajos[i].fecha.mes, trabajos[i].fecha.anio);
                 error=0;
             }

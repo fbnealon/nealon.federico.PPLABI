@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1603114662 source:d:\federico\documents\progra i\nealon.federico.pplabi\main.c
+1606772150 source:d:\federico\documents\progra i\nealon.federico.pplabi\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -10,84 +10,92 @@
 	"servicio.h"
 	"fecha.h"
 	"trabajo.h"
+	"informes.h"
+	"cliente.h"
+	"datastore.h"
 
-1602685139 source:d:\federico\documents\progra i\nealon.federico.pplabi\input.c
+1606771634 source:d:\federico\documents\progra i\nealon.federico.pplabi\input.c
 	"input.h"
 
-1602680814 d:\federico\documents\progra i\nealon.federico.pplabi\input.h
+1606604363 d:\federico\documents\progra i\nealon.federico.pplabi\input.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 
-1603114724 source:d:\federico\documents\progra i\nealon.federico.pplabi\auto.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<ctype.h>
+1606772314 source:d:\federico\documents\progra i\nealon.federico.pplabi\auto.c
 	"auto.h"
-	"marca.h"
-	"color.h"
-	"input.h"
 
-1602888291 d:\federico\documents\progra i\nealon.federico.pplabi\auto.h
-	"marca.h"
-	"color.h"
-
-1602884876 source:d:\federico\documents\progra i\nealon.federico.pplabi\color.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<ctype.h>
-	"color.h"
-	"input.h"
-
-1602977255 source:d:\federico\documents\progra i\nealon.federico.pplabi\marca.c
+1606770566 d:\federico\documents\progra i\nealon.federico.pplabi\auto.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"marca.h"
+	"color.h"
 	"input.h"
+	"cliente.h"
 
-1602884876 source:d:\federico\documents\progra i\nealon.federico.pplabi\servicio.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<ctype.h>
+1606768235 source:d:\federico\documents\progra i\nealon.federico.pplabi\color.c
+	"color.h"
+
+1606768235 source:d:\federico\documents\progra i\nealon.federico.pplabi\marca.c
+	"marca.h"
+
+1606768236 source:d:\federico\documents\progra i\nealon.federico.pplabi\servicio.c
 	"servicio.h"
+
+1606768235 source:d:\federico\documents\progra i\nealon.federico.pplabi\trabajo.c
+	"trabajo.h"
+
+1606662760 d:\federico\documents\progra i\nealon.federico.pplabi\marca.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
 	"input.h"
 
-1602884876 source:d:\federico\documents\progra i\nealon.federico.pplabi\trabajo.c
+1606662760 d:\federico\documents\progra i\nealon.federico.pplabi\color.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"input.h"
+
+1606768275 d:\federico\documents\progra i\nealon.federico.pplabi\servicio.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"input.h"
+
+1606662760 d:\federico\documents\progra i\nealon.federico.pplabi\fecha.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"input.h"
+
+1606773050 source:d:\federico\documents\progra i\nealon.federico.pplabi\fecha.c
+	"fecha.h"
+
+1606771755 d:\federico\documents\progra i\nealon.federico.pplabi\trabajo.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	<ctype.h>
 	"fecha.h"
 	"auto.h"
+	"servicio.h"
+	"input.h"
+
+1606772052 d:\federico\documents\progra i\nealon.federico.pplabi\datastore.h
+	"auto.h"
+	"marca.h"
+	"color.h"
 	"servicio.h"
 	"trabajo.h"
-	"input.h"
-
-1602977255 d:\federico\documents\progra i\nealon.federico.pplabi\marca.h
-
-1602685972 d:\federico\documents\progra i\nealon.federico.pplabi\color.h
-
-1602689706 d:\federico\documents\progra i\nealon.federico.pplabi\servicio.h
-
-1602700466 d:\federico\documents\progra i\nealon.federico.pplabi\fecha.h
-
-1602700466 source:d:\federico\documents\progra i\nealon.federico.pplabi\fecha.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	<ctype.h>
-	"fecha.h"
-	"input.h"
-
-1602700613 d:\federico\documents\progra i\nealon.federico.pplabi\trabajo.h
-
-1602681136 d:\federico\documents\progra i\nealon.federico.pplabi\datastore.h
+	"cliente.h"
 
 1603670290 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\auto.c
 	"auto.h"
@@ -201,5 +209,30 @@
 	"servicio.h"
 
 1603670344 source:c:\users\federico\desktop\nueva carpeta\nealon.federico.pplabi\informes.c
+	"informes.h"
+
+1606761379 d:\federico\documents\progra i\nealon.federico.pplabi\cliente.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"input.h"
+
+1606770727 d:\federico\documents\progra i\nealon.federico.pplabi\informes.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"auto.h"
+	"marca.h"
+	"color.h"
+	"trabajo.h"
+	"fecha.h"
+	"servicio.h"
+
+1606761562 source:d:\federico\documents\progra i\nealon.federico.pplabi\cliente.c
+	"cliente.h"
+
+1606772760 source:d:\federico\documents\progra i\nealon.federico.pplabi\informes.c
 	"informes.h"
 

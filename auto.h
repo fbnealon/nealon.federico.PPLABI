@@ -16,7 +16,7 @@
 typedef struct
 {
     int id;
-    char patente[7]; //VALIDAR
+    char patente[9]; //VALIDAR
     int idMarca; //VALIDAR
     int idColor;
     int modelo;
@@ -26,24 +26,26 @@ typedef struct
 
 char menu();
 
-int buscarLibre(eAuto autos[], int tam);
+int auto_buscarLibre(eAuto autos[], int tam);
 
-int buscarAuto(eAuto autos[], int tamAutos, int id);
+int auto_buscar(eAuto autos[], int tamAutos, int id);
 
-int inicializarAutos(eAuto autos[], int tam);
+int auto_inicializar(eAuto autos[], int tam);
 
-int mostrarAutos(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamCl);
+int auto_mostrarTodos(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes);
 
-void mostrarAuto(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamCl);
+void auto_mostrarUno(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes);
 
-int altaAuto(eAuto autos[], int tam, int idAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores);
+int auto_alta(eAuto autos[], int tam, int idAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes);
 
-int bajaAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamCl);
+int auto_baja(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes);
 
-int modificarAuto(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamCl);
+int auto_modificar(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes);
 
-eAuto modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamCl);
+eAuto auto_modificaciones(eAuto unAuto, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes);
 
-int ordenarAutosXMarcaYPatente(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores);
+int auto_ordenarXMarcaYPatente(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores);
+
+int auto_hayCargado(eAuto autos[], int tamAutos);
 
 #endif // AUTO_H_INCLUDED

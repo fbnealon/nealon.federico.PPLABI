@@ -13,10 +13,10 @@ typedef struct
     char descripcion[20];
 }eMarca;
 
-int cargarMarca(eMarca marcas[], int tamMarcas, int id, char descripcion[]);
+int marca_cargar(eMarca marcas[], int tamMarcas, int id, char descripcion[]);
 
-int mostrarMarcas(eMarca marcas[], int tamMarcas);
+int marca_mostrarTodas(eMarca marcas[], int tamMarcas);
 
-void mostrarMarca(eMarca unaMarca);
+void marca_mostrarUna(eMarca unaMarca);
 
 #endif // MARCA_H_INCLUDED

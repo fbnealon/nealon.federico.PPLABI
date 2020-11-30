@@ -12,29 +12,39 @@
 #include "fecha.h"
 #include "servicio.h"
 
+typedef struct
+{
+    int idMarca;
+    int cantidad;
+}eMasElegidas;
+
 char menuInformes();
 
-int informar(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, eServicio servicios[], int tamS, eTrabajo trabajos[], int tamT, eCliente clientes[], int tamCl);
+int informar(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eServicio servicios[], int tamServicios, eTrabajo trabajos[], int tamT, eCliente clientes[], int tamColoresl, eMasElegidas masElegidas[]);
 
-int mostrarAutosDeColor(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, int idColor, eCliente clientes[], int tamCl);
+int informe_autosDeColor(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, int idColor, eCliente clientes[], int tamClientes);
 
-int mostrarAutosDeMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, int idMarca, eCliente clientes[], int tamCl);
+int informe_autosDeMarca(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, int idMarca, eCliente clientes[], int tamClientes);
 
-int mostrarMasAntiguo(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, eCliente clientes[], int tamCl);
+int informe_autoMasAntiguo(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes);
 
-int mostrarXMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, eCliente clientes[], int tamCl);
+int informe_autosXMarca(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes);
 
-int contarXColorYMarca(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC, int idColor, int idMarca);
+int informe_cantidadXColorYMarca(eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, int idColor, int idMarca);
 
-int marcasMasElegidas(eAuto autos[], int tamA, eMarca marcas[], int tamM, eColor colores[], int tamC);
+int informe_inicializarMasElegidas(eMasElegidas masElegidas[], eMarca marcas[], int tamMarcasarcas);
 
-int mostrarTrabajosXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS, char patente[]);
+int informe_cargarMasElegidas(eMasElegidas masElegidas[], eMarca marcas[], int tamMarcasarcas, eAuto autos[], int tamAutos);
 
-int mostrarImportesXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS, char patente[]);
+int informe_marcasMasElegidas(eMasElegidas masElegidas[], eMarca marcas[], int tamMarcasarcas, eAuto autos[], int tamAutos);
 
-int mostrarAutosXServicio(eTrabajo trabajos[], int tamT, int idServicio);
+int informe_trabajosXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamServicios, char patente[]);
 
-int mostrarServiciosXFecha(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamS, eFecha fecha);
+int informe_importesXAuto(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamServicios, char patente[]);
+
+int informe_autosXServicio(eTrabajo trabajos[], int tamTrabajos, int idServicio, eAuto autos[], int tamAutos, eMarca marcas[], int tamMarcas, eColor colores[], int tamColores, eCliente clientes[], int tamClientes, eServicio servicios[], int tamServicios);
+
+int informe_serviciosXFecha(eTrabajo trabajos[], int tamT, eServicio servicios[], int tamServicios, eFecha fecha);
 
 
 #endif // INFORMES_H_INCLUDED

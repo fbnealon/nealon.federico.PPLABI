@@ -1,7 +1,16 @@
 #include "color.h"
 
 
-int cargarColor(eColor colores[], int tamColores, int id, char descripcion[])
+/** \brief Carga en una cadena pasada por parametro el nombre de color que coincide con el id pasado por parametro
+ *
+ * \param marcas[] eMarca
+ * \param tamMarcas int
+ * \param id int
+ * \param descripcion[] char
+ * \return int
+ *
+ */
+int color_cargar(eColor colores[], int tamColores, int id, char descripcion[])
 {
     int error=1;
     if(colores != NULL && tamColores>0 && id>0)
@@ -18,7 +27,14 @@ int cargarColor(eColor colores[], int tamColores, int id, char descripcion[])
     return error;
 }
 
-int mostrarColores(eColor colores[], int tamColores)
+/** \brief Imprime todos los colores
+ *
+ * \param colores[] eColor
+ * \param tamColores int
+ * \return int
+ *
+ */
+int color_mostrarTodos(eColor colores[], int tamColores)
 {
     int error=1;
     int flag=0;
@@ -27,20 +43,26 @@ int mostrarColores(eColor colores[], int tamColores)
         printf("ID                      COLOR\n\n");
         for(int i=0; i<tamColores; i++)
         {
-            mostrarColor(colores[i]);
+            color_mostrarUno(colores[i]);
             flag=1;
         }
         printf("\n\n");
         if (flag==0)
         {
-            printf("    No hay marcas cargadas en la lista\n\n");
+            printf("    No hay colores cargados en la lista\n\n");
         }
         error=0;
     }
     return error;
 }
 
-void mostrarColor(eColor unColor)
+/** \brief Imprime un color
+ *
+ * \param unColor eColor
+ * \return void
+ *
+ */
+void color_mostrarUno(eColor unColor)
 {
     printf("%4d     %20s\n", unColor.id, unColor.nombreColor);
 }

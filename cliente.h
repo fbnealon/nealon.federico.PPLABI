@@ -15,6 +15,12 @@ typedef struct
     int isEmpty;
 }eCliente;
 
-int cargarCliente(eCliente clientes[], int tamClientes, int id, char descripcion[]);
+int cliente_cargar(eCliente clientes[], int tamClientes, int id, char descripcion[]);
+
+int cliente_mostrarTodos(eCliente clientes[], int tamClientes);
+
+void cliente_mostrarUno(eCliente unCliente);
+
+
 
 #endif // CLIENTE_H_INCLUDED
